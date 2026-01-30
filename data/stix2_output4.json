@@ -1,0 +1,3852 @@
+{
+    "type": "bundle",
+    "id": "bundle--f2bd216e-34ab-425a-9673-12d8a01bd542",
+    "objects": [
+        {
+            "type": "identity",
+            "spec_version": "2.1",
+            "id": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:24.498894Z",
+            "modified": "2026-01-23T09:45:24.498894Z",
+            "name": "AbuseIPDB & GreyNoise Enrichment",
+            "description": "Production Grade Connector",
+            "identity_class": "organization"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--43795437-43b7-5c02-87e0-a3162a5ea9ac",
+            "value": "1.2.170.63",
+            "x_opencti_description": "ISP: TOT Public Company Limited. Location: Nakhon Sawan, Thailand",
+            "x_opencti_score": 40
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--20dfb28b-f41b-410b-abb6-25c151b28943",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.592305Z",
+            "modified": "2026-01-23T09:45:35.592305Z",
+            "name": "Malicious IP: 1.2.170.63",
+            "description": "Abuse Score: 40 | ISP: TOT Public Company Limited | Loc: Nakhon Sawan, Thailand | Behaviors: Brute-Force, Exploited Host, Hacking, Port Scan",
+            "pattern": "[ipv4-addr:value = '1.2.170.63']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:35.592275Z",
+            "labels": [
+                "exploited-host",
+                "hacking",
+                "malicious-activity",
+                "port-scan",
+                "brute-force"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 40
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--f1991f33-7737-4322-8771-cd7bcf6a6498",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.601991Z",
+            "modified": "2026-01-23T09:45:35.601991Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--20dfb28b-f41b-410b-abb6-25c151b28943",
+            "target_ref": "ipv4-addr--43795437-43b7-5c02-87e0-a3162a5ea9ac"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--6408d9fc-dd1d-4a38-9c9c-101801101e8b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.602215Z",
+            "modified": "2026-01-23T09:45:35.602215Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--623bf094-bf83-4e3a-9858-2ca8415b095f",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.602422Z",
+            "modified": "2026-01-23T09:45:35.602422Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--20dfb28b-f41b-410b-abb6-25c151b28943",
+            "target_ref": "attack-pattern--6408d9fc-dd1d-4a38-9c9c-101801101e8b"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--b8e63517-637b-4154-9820-fe6153bad1a8",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.60257Z",
+            "modified": "2026-01-23T09:45:35.60257Z",
+            "name": "Compromise Infrastructure",
+            "description": "Máy chủ đã bị xâm nhập và lợi dụng.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "86f04b6a-8e78-46ca-98a9-bc32e683c2b1"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--6b8b3fc1-4d43-47a9-81ca-5b26dcf75212",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.602733Z",
+            "modified": "2026-01-23T09:45:35.602733Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--20dfb28b-f41b-410b-abb6-25c151b28943",
+            "target_ref": "attack-pattern--b8e63517-637b-4154-9820-fe6153bad1a8"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--af62a644-5979-4123-ab85-99d6b9055de2",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.602857Z",
+            "modified": "2026-01-23T09:45:35.602857Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--2e5b2adc-e665-406f-abcb-078763e0a9b3",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.60301Z",
+            "modified": "2026-01-23T09:45:35.60301Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--20dfb28b-f41b-410b-abb6-25c151b28943",
+            "target_ref": "attack-pattern--af62a644-5979-4123-ab85-99d6b9055de2"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--1780d1b3-c017-471d-b2c1-55936f28818d",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.603125Z",
+            "modified": "2026-01-23T09:45:35.603125Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--0bfa4963-932a-449e-bb08-21e6840db7f9",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.603272Z",
+            "modified": "2026-01-23T09:45:35.603272Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--20dfb28b-f41b-410b-abb6-25c151b28943",
+            "target_ref": "attack-pattern--1780d1b3-c017-471d-b2c1-55936f28818d"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--4b97caf4-3946-5354-abf2-02558685e5ab",
+            "value": "1.2.170.201",
+            "x_opencti_description": "ISP: TOT Public Company Limited. Location: Nakhon Sawan, Thailand",
+            "x_opencti_score": 24
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--ecf4a0be-2945-4b97-a326-a43a954090cb",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.772839Z",
+            "modified": "2026-01-23T09:45:35.772839Z",
+            "name": "Malicious IP: 1.2.170.201",
+            "description": "Abuse Score: 24 | ISP: TOT Public Company Limited | Loc: Nakhon Sawan, Thailand | Behaviors: Brute-Force, Port Scan",
+            "pattern": "[ipv4-addr:value = '1.2.170.201']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:35.772819Z",
+            "labels": [
+                "brute-force",
+                "port-scan",
+                "malicious-activity"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 24
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--7870b6bb-3e52-46e7-80d1-8e17c7329b7f",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.783854Z",
+            "modified": "2026-01-23T09:45:35.783854Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--ecf4a0be-2945-4b97-a326-a43a954090cb",
+            "target_ref": "ipv4-addr--4b97caf4-3946-5354-abf2-02558685e5ab"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--bb3928e9-1ecc-4450-8aea-809cf7501086",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.784176Z",
+            "modified": "2026-01-23T09:45:35.784176Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--8537bfd7-0168-4979-ac25-7813037d6019",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.784476Z",
+            "modified": "2026-01-23T09:45:35.784476Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--ecf4a0be-2945-4b97-a326-a43a954090cb",
+            "target_ref": "attack-pattern--bb3928e9-1ecc-4450-8aea-809cf7501086"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--1ec0feda-9a36-45c4-8194-d4944152742b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.784677Z",
+            "modified": "2026-01-23T09:45:35.784677Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--d24d95d9-19fa-4655-9cce-ef943f59a203",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.784913Z",
+            "modified": "2026-01-23T09:45:35.784913Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--ecf4a0be-2945-4b97-a326-a43a954090cb",
+            "target_ref": "attack-pattern--1ec0feda-9a36-45c4-8194-d4944152742b"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--fea7d37e-b7b0-5fa8-998a-475dc5b7b402",
+            "value": "1.2.170.237",
+            "x_opencti_description": "ISP: TOT Public Company Limited. Location: Nakhon Sawan, Thailand",
+            "x_opencti_score": 14
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--0b4160fe-b711-41f2-ad8e-c6bf4e1a9680",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.595978Z",
+            "modified": "2026-01-23T09:45:35.595978Z",
+            "name": "Malicious IP: 1.2.170.237",
+            "description": "Abuse Score: 14 | ISP: TOT Public Company Limited | Loc: Nakhon Sawan, Thailand | Behaviors: Brute-Force, Exploited Host, Hacking, Port Scan",
+            "pattern": "[ipv4-addr:value = '1.2.170.237']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:35.595949Z",
+            "labels": [
+                "port-scan",
+                "brute-force",
+                "hacking",
+                "malicious-activity",
+                "exploited-host"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 14
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--769e050a-20d8-4189-9f6c-ad7b1bce6b96",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.604367Z",
+            "modified": "2026-01-23T09:45:35.604367Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--0b4160fe-b711-41f2-ad8e-c6bf4e1a9680",
+            "target_ref": "ipv4-addr--fea7d37e-b7b0-5fa8-998a-475dc5b7b402"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--443d2909-7c74-4676-ab5c-30969c6ffdba",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.604587Z",
+            "modified": "2026-01-23T09:45:35.604587Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--9cff1015-80eb-4002-b5ec-669af4ef20f3",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.604799Z",
+            "modified": "2026-01-23T09:45:35.604799Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--0b4160fe-b711-41f2-ad8e-c6bf4e1a9680",
+            "target_ref": "attack-pattern--443d2909-7c74-4676-ab5c-30969c6ffdba"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--e635ddd7-1560-48a4-b304-7c7fb51e2e92",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.604935Z",
+            "modified": "2026-01-23T09:45:35.604935Z",
+            "name": "Compromise Infrastructure",
+            "description": "Máy chủ đã bị xâm nhập và lợi dụng.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "86f04b6a-8e78-46ca-98a9-bc32e683c2b1"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--a2fb073d-b108-4000-9dc4-1b3bee9e14f2",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.6051Z",
+            "modified": "2026-01-23T09:45:35.6051Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--0b4160fe-b711-41f2-ad8e-c6bf4e1a9680",
+            "target_ref": "attack-pattern--e635ddd7-1560-48a4-b304-7c7fb51e2e92"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--daa28cc4-f5ff-45e3-80c1-442908e880aa",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.605222Z",
+            "modified": "2026-01-23T09:45:35.605222Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--609ae550-b811-461a-87b9-a41f0e12b0dd",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.605388Z",
+            "modified": "2026-01-23T09:45:35.605388Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--0b4160fe-b711-41f2-ad8e-c6bf4e1a9680",
+            "target_ref": "attack-pattern--daa28cc4-f5ff-45e3-80c1-442908e880aa"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--bac5de14-7a87-4107-8382-e5469b3f60f5",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.605508Z",
+            "modified": "2026-01-23T09:45:35.605508Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--baaf0908-a608-49b9-82f5-2bc57c4751e6",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.60565Z",
+            "modified": "2026-01-23T09:45:35.60565Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--0b4160fe-b711-41f2-ad8e-c6bf4e1a9680",
+            "target_ref": "attack-pattern--bac5de14-7a87-4107-8382-e5469b3f60f5"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--a7a2f247-1023-5a77-922b-ece5a7e20eb7",
+            "value": "1.15.14.29",
+            "x_opencti_description": "ISP: Shenzhen Tencent Computer Systems Company Limited. Location: Shanghai, China",
+            "x_opencti_score": 100
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--4fdfdaf9-d472-49d9-94e7-ee79c80a0fc7",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.105868Z",
+            "modified": "2026-01-23T09:45:36.105868Z",
+            "name": "Malicious IP: 1.15.14.29",
+            "description": "Abuse Score: 100 | ISP: Shenzhen Tencent Computer Systems Company Limited | Loc: Shanghai, China | Behaviors: Bad Web Bot, Brute-Force, Exploited Host, Hacking, Port Scan, SSH, Unknown(12), Unknown(16), Web App Attack, Web Spam",
+            "pattern": "[ipv4-addr:value = '1.15.14.29']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:36.105852Z",
+            "labels": [
+                "ssh",
+                "hacking",
+                "web-app-attack",
+                "web-spam",
+                "unknown(12)",
+                "unknown(16)",
+                "port-scan",
+                "bad-web-bot",
+                "malicious-activity",
+                "exploited-host",
+                "brute-force"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 100
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--9f9a146f-1af7-4cf2-8fc1-768ea45bfd52",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.113977Z",
+            "modified": "2026-01-23T09:45:36.113977Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--4fdfdaf9-d472-49d9-94e7-ee79c80a0fc7",
+            "target_ref": "ipv4-addr--a7a2f247-1023-5a77-922b-ece5a7e20eb7"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--4909e705-5020-4246-81ae-64e8a56aea1f",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.114204Z",
+            "modified": "2026-01-23T09:45:36.114204Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--4001bfb3-d38f-433f-b181-99e77e132fd2",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.11441Z",
+            "modified": "2026-01-23T09:45:36.11441Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--4fdfdaf9-d472-49d9-94e7-ee79c80a0fc7",
+            "target_ref": "attack-pattern--4909e705-5020-4246-81ae-64e8a56aea1f"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--94437844-7041-4d8f-86cf-8e562370bdd0",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.114543Z",
+            "modified": "2026-01-23T09:45:36.114543Z",
+            "name": "Compromise Infrastructure",
+            "description": "Máy chủ đã bị xâm nhập và lợi dụng.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "86f04b6a-8e78-46ca-98a9-bc32e683c2b1"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--54bce859-ed3a-4e45-bbda-23f42ff765ab",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.114699Z",
+            "modified": "2026-01-23T09:45:36.114699Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--4fdfdaf9-d472-49d9-94e7-ee79c80a0fc7",
+            "target_ref": "attack-pattern--94437844-7041-4d8f-86cf-8e562370bdd0"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--90dc2825-5d0b-45e6-8182-c989cb2854d1",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.11482Z",
+            "modified": "2026-01-23T09:45:36.11482Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--980f9927-7945-4088-833a-386e7d11c143",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.114967Z",
+            "modified": "2026-01-23T09:45:36.114967Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--4fdfdaf9-d472-49d9-94e7-ee79c80a0fc7",
+            "target_ref": "attack-pattern--90dc2825-5d0b-45e6-8182-c989cb2854d1"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--ef7ff46e-ff97-4bf0-b7f0-0bc424adf545",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.115081Z",
+            "modified": "2026-01-23T09:45:36.115081Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--b8f286e7-13dc-495e-8d10-b1377aa58929",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.115225Z",
+            "modified": "2026-01-23T09:45:36.115225Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--4fdfdaf9-d472-49d9-94e7-ee79c80a0fc7",
+            "target_ref": "attack-pattern--ef7ff46e-ff97-4bf0-b7f0-0bc424adf545"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--c5644955-862f-4568-89c4-8f780391f15f",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.115337Z",
+            "modified": "2026-01-23T09:45:36.115337Z",
+            "name": "Brute Force: Password Guessing",
+            "description": "Kẻ tấn công cố gắng đoán mật khẩu SSH.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "9dbf9f63-ea71-4d2c-9828-56455eb37d4d"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--48a62d4d-a662-4ba2-96f7-f0b26c3eaad4",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.115478Z",
+            "modified": "2026-01-23T09:45:36.115478Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--4fdfdaf9-d472-49d9-94e7-ee79c80a0fc7",
+            "target_ref": "attack-pattern--c5644955-862f-4568-89c4-8f780391f15f"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--4e1f0e85-b194-4c73-b353-aaf55e71b78b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.11559Z",
+            "modified": "2026-01-23T09:45:36.11559Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--eca4b27d-9323-4ae5-af66-cdb5de56b074",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.115725Z",
+            "modified": "2026-01-23T09:45:36.115725Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--4fdfdaf9-d472-49d9-94e7-ee79c80a0fc7",
+            "target_ref": "attack-pattern--4e1f0e85-b194-4c73-b353-aaf55e71b78b"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--7d48375a-748e-5085-9450-07c5ca579462",
+            "value": "1.15.51.236",
+            "x_opencti_description": "ISP: Shenzhen Tencent Computer Systems Company Limited. Location: Shanghai, China",
+            "x_opencti_score": 100
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--f887c0bc-3e5d-4f6d-aecd-4b8a3eb52a39",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.173325Z",
+            "modified": "2026-01-23T09:45:41.173325Z",
+            "name": "Malicious IP: 1.15.51.236",
+            "description": "Abuse Score: 100 | ISP: Shenzhen Tencent Computer Systems Company Limited | Loc: Shanghai, China | Behaviors: Bad Web Bot, Brute-Force, DDoS Attack, Email Spam, Exploited Host, Hacking, IoT Targeted, Port Scan, SSH, Unknown(12), Unknown(6), Unknown(7), Web App Attack, Web Spam",
+            "pattern": "[ipv4-addr:value = '1.15.51.236']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:41.173306Z",
+            "labels": [
+                "port-scan",
+                "iot-targeted",
+                "ddos-attack",
+                "exploited-host",
+                "unknown(12)",
+                "bad-web-bot",
+                "ssh",
+                "email-spam",
+                "unknown(7)",
+                "brute-force",
+                "hacking",
+                "web-spam",
+                "malicious-activity",
+                "web-app-attack",
+                "unknown(6)"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 100
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--740453d1-14c8-4f4e-b890-d273c537ea37",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.180447Z",
+            "modified": "2026-01-23T09:45:41.180447Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--f887c0bc-3e5d-4f6d-aecd-4b8a3eb52a39",
+            "target_ref": "ipv4-addr--7d48375a-748e-5085-9450-07c5ca579462"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--402ac3dd-43e0-4993-8ad6-fe28456303b0",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.180711Z",
+            "modified": "2026-01-23T09:45:41.180711Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--ace7a5e4-11de-47b3-989c-b6331c70a895",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.180979Z",
+            "modified": "2026-01-23T09:45:41.180979Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--f887c0bc-3e5d-4f6d-aecd-4b8a3eb52a39",
+            "target_ref": "attack-pattern--402ac3dd-43e0-4993-8ad6-fe28456303b0"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--0fda049d-2487-483e-9a0a-eeb8ba3c6324",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.181165Z",
+            "modified": "2026-01-23T09:45:41.181165Z",
+            "name": "Network Denial of Service",
+            "description": "Tấn công từ chối dịch vụ (DDoS).",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "c696e810-6366-4554-b4ce-35324d2627c2"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--b22944c5-9ef0-49a3-b350-336f7dd81c15",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.1814Z",
+            "modified": "2026-01-23T09:45:41.1814Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--f887c0bc-3e5d-4f6d-aecd-4b8a3eb52a39",
+            "target_ref": "attack-pattern--0fda049d-2487-483e-9a0a-eeb8ba3c6324"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--e3198f83-7cdd-4992-b7f8-e43f04273165",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.181582Z",
+            "modified": "2026-01-23T09:45:41.181582Z",
+            "name": "Compromise Infrastructure",
+            "description": "Máy chủ đã bị xâm nhập và lợi dụng.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "86f04b6a-8e78-46ca-98a9-bc32e683c2b1"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--39972d72-dabd-47d7-b090-b1d54ff7da4e",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.181788Z",
+            "modified": "2026-01-23T09:45:41.181788Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--f887c0bc-3e5d-4f6d-aecd-4b8a3eb52a39",
+            "target_ref": "attack-pattern--e3198f83-7cdd-4992-b7f8-e43f04273165"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--016e5b0a-b28b-4c2a-809c-ec6a436fb637",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.181953Z",
+            "modified": "2026-01-23T09:45:41.181953Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--6fa5b6ac-0b0d-45b6-8bde-607c41fb67cf",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.182129Z",
+            "modified": "2026-01-23T09:45:41.182129Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--f887c0bc-3e5d-4f6d-aecd-4b8a3eb52a39",
+            "target_ref": "attack-pattern--016e5b0a-b28b-4c2a-809c-ec6a436fb637"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--1f67e6bb-1441-46c1-986f-5722ccdf321a",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.182298Z",
+            "modified": "2026-01-23T09:45:41.182298Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công nhắm vào thiết bị IoT.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--59a9eb93-6737-4ced-80a6-cf7b88a0085e",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.182496Z",
+            "modified": "2026-01-23T09:45:41.182496Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--f887c0bc-3e5d-4f6d-aecd-4b8a3eb52a39",
+            "target_ref": "attack-pattern--1f67e6bb-1441-46c1-986f-5722ccdf321a"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--b200c9e8-23ca-4718-8bd3-8760beff86ad",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.182641Z",
+            "modified": "2026-01-23T09:45:41.182641Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--bfabecec-3a0b-4a35-a1e2-a64c9fb31640",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.182838Z",
+            "modified": "2026-01-23T09:45:41.182838Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--f887c0bc-3e5d-4f6d-aecd-4b8a3eb52a39",
+            "target_ref": "attack-pattern--b200c9e8-23ca-4718-8bd3-8760beff86ad"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--d09d57ea-0bcf-4a6a-9939-fcdb547887b2",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.182993Z",
+            "modified": "2026-01-23T09:45:41.182993Z",
+            "name": "Brute Force: Password Guessing",
+            "description": "Kẻ tấn công cố gắng đoán mật khẩu SSH.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "9dbf9f63-ea71-4d2c-9828-56455eb37d4d"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--37ae84bd-3236-4f93-8f80-40aac6acd0c3",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:41.183202Z",
+            "modified": "2026-01-23T09:45:41.183202Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--f887c0bc-3e5d-4f6d-aecd-4b8a3eb52a39",
+            "target_ref": "attack-pattern--d09d57ea-0bcf-4a6a-9939-fcdb547887b2"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--f219c8cc-a92c-59ae-9d21-b68d7c6632c7",
+            "value": "1.24.16.3",
+            "x_opencti_description": "ISP: CHINA UNICOM China169 Backbone. Location: None, China",
+            "x_opencti_score": 66
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--210635c5-01c8-4a0f-9229-88d6b947edf6",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.626693Z",
+            "modified": "2026-01-23T09:45:35.626693Z",
+            "name": "Malicious IP: 1.24.16.3",
+            "description": "Abuse Score: 66 | ISP: CHINA UNICOM China169 Backbone | Loc: None, China | Behaviors: Bad Web Bot, Brute-Force, DDoS Attack, Exploited Host, Hacking, Port Scan, SSH, Unknown(6), Web App Attack",
+            "pattern": "[ipv4-addr:value = '1.24.16.3']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:35.626672Z",
+            "labels": [
+                "ssh",
+                "bad-web-bot",
+                "unknown(6)",
+                "hacking",
+                "malicious-activity",
+                "port-scan",
+                "ddos-attack",
+                "web-app-attack",
+                "exploited-host",
+                "brute-force"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 66
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--7ac49009-77da-4d5b-bdeb-4550e2290d96",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.635487Z",
+            "modified": "2026-01-23T09:45:35.635487Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--210635c5-01c8-4a0f-9229-88d6b947edf6",
+            "target_ref": "ipv4-addr--f219c8cc-a92c-59ae-9d21-b68d7c6632c7"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--302ed82b-6a57-43df-a03d-6da08da67992",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.635714Z",
+            "modified": "2026-01-23T09:45:35.635714Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--ca55fbd1-a4bf-49b8-a3b6-557f4858a7be",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.635917Z",
+            "modified": "2026-01-23T09:45:35.635917Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--210635c5-01c8-4a0f-9229-88d6b947edf6",
+            "target_ref": "attack-pattern--302ed82b-6a57-43df-a03d-6da08da67992"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--4164a86a-d7de-4c9b-9e69-b228a7a7452f",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.636048Z",
+            "modified": "2026-01-23T09:45:35.636048Z",
+            "name": "Network Denial of Service",
+            "description": "Tấn công từ chối dịch vụ (DDoS).",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "c696e810-6366-4554-b4ce-35324d2627c2"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--7151bd5d-e74a-45ee-85a6-7ad633faea0b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.636202Z",
+            "modified": "2026-01-23T09:45:35.636202Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--210635c5-01c8-4a0f-9229-88d6b947edf6",
+            "target_ref": "attack-pattern--4164a86a-d7de-4c9b-9e69-b228a7a7452f"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--3f844fa0-4d61-421c-83e6-19db39f7bc86",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.636321Z",
+            "modified": "2026-01-23T09:45:35.636321Z",
+            "name": "Compromise Infrastructure",
+            "description": "Máy chủ đã bị xâm nhập và lợi dụng.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "86f04b6a-8e78-46ca-98a9-bc32e683c2b1"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--94431e47-73b1-41ab-8e44-751d75ae1ac1",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.636469Z",
+            "modified": "2026-01-23T09:45:35.636469Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--210635c5-01c8-4a0f-9229-88d6b947edf6",
+            "target_ref": "attack-pattern--3f844fa0-4d61-421c-83e6-19db39f7bc86"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--122cd585-c583-4a02-bed4-e21cdbb26d76",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.636582Z",
+            "modified": "2026-01-23T09:45:35.636582Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--25de51ae-38a2-4155-993c-b9464450df40",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.63672Z",
+            "modified": "2026-01-23T09:45:35.63672Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--210635c5-01c8-4a0f-9229-88d6b947edf6",
+            "target_ref": "attack-pattern--122cd585-c583-4a02-bed4-e21cdbb26d76"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--a985d2ab-3e20-4e20-a0d8-1b949b8d8494",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.636831Z",
+            "modified": "2026-01-23T09:45:35.636831Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--2e80a393-ffbb-4dfb-bdf2-35c641d8c374",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.636972Z",
+            "modified": "2026-01-23T09:45:35.636972Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--210635c5-01c8-4a0f-9229-88d6b947edf6",
+            "target_ref": "attack-pattern--a985d2ab-3e20-4e20-a0d8-1b949b8d8494"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--67449ca7-3940-4506-930b-efb8f6a08e3e",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.637097Z",
+            "modified": "2026-01-23T09:45:35.637097Z",
+            "name": "Brute Force: Password Guessing",
+            "description": "Kẻ tấn công cố gắng đoán mật khẩu SSH.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "9dbf9f63-ea71-4d2c-9828-56455eb37d4d"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--02e6b82c-d9a7-47b0-9c85-1b144b44de96",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.637244Z",
+            "modified": "2026-01-23T09:45:35.637244Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--210635c5-01c8-4a0f-9229-88d6b947edf6",
+            "target_ref": "attack-pattern--67449ca7-3940-4506-930b-efb8f6a08e3e"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--9e98917f-2356-4583-b99c-9756a4b40296",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.637367Z",
+            "modified": "2026-01-23T09:45:35.637367Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--91d73a36-c3fe-41ce-aa16-2640cb7a5d20",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.637506Z",
+            "modified": "2026-01-23T09:45:35.637506Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--210635c5-01c8-4a0f-9229-88d6b947edf6",
+            "target_ref": "attack-pattern--9e98917f-2356-4583-b99c-9756a4b40296"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--0a5fcfd3-1fbf-54b7-b396-9c17c0d50e92",
+            "value": "1.24.16.6",
+            "x_opencti_description": "ISP: CHINA UNICOM China169 Backbone. Location: None, China",
+            "x_opencti_score": 51
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--2c2c822b-0c5c-471f-a1c7-5842c6b3b17d",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.754034Z",
+            "modified": "2026-01-23T09:45:35.754034Z",
+            "name": "Malicious IP: 1.24.16.6",
+            "description": "Abuse Score: 51 | ISP: CHINA UNICOM China169 Backbone | Loc: None, China | Behaviors: Bad Web Bot, Brute-Force, Email Spam, Exploited Host, Hacking, Port Scan, Unknown(17), Unknown(7), Web App Attack",
+            "pattern": "[ipv4-addr:value = '1.24.16.6']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:35.754012Z",
+            "labels": [
+                "exploited-host",
+                "bad-web-bot",
+                "hacking",
+                "brute-force",
+                "port-scan",
+                "malicious-activity",
+                "unknown(17)",
+                "unknown(7)",
+                "web-app-attack",
+                "email-spam"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 51
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--fdbb1d9d-1179-498e-b539-3e19bf549ffa",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.765589Z",
+            "modified": "2026-01-23T09:45:35.765589Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--2c2c822b-0c5c-471f-a1c7-5842c6b3b17d",
+            "target_ref": "ipv4-addr--0a5fcfd3-1fbf-54b7-b396-9c17c0d50e92"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--e8bc2ebb-794b-4ce6-9ad8-be908dbd2716",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.765944Z",
+            "modified": "2026-01-23T09:45:35.765944Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--ff15253a-db72-4ffe-8eb2-150aab045a3d",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.766267Z",
+            "modified": "2026-01-23T09:45:35.766267Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2c2c822b-0c5c-471f-a1c7-5842c6b3b17d",
+            "target_ref": "attack-pattern--e8bc2ebb-794b-4ce6-9ad8-be908dbd2716"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--ca1d8aa7-ad50-4998-85eb-404cf5fe06f3",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.766487Z",
+            "modified": "2026-01-23T09:45:35.766487Z",
+            "name": "Compromise Infrastructure",
+            "description": "Máy chủ đã bị xâm nhập và lợi dụng.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "86f04b6a-8e78-46ca-98a9-bc32e683c2b1"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--c2e0cce4-89e6-48b2-8bf1-8bc7655e9181",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.76673Z",
+            "modified": "2026-01-23T09:45:35.76673Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2c2c822b-0c5c-471f-a1c7-5842c6b3b17d",
+            "target_ref": "attack-pattern--ca1d8aa7-ad50-4998-85eb-404cf5fe06f3"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--7cab1f9b-a095-4454-9408-584b2a0fdbc2",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.766912Z",
+            "modified": "2026-01-23T09:45:35.766912Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--cea03901-76ca-405b-987d-03af469f0d9d",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.767138Z",
+            "modified": "2026-01-23T09:45:35.767138Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2c2c822b-0c5c-471f-a1c7-5842c6b3b17d",
+            "target_ref": "attack-pattern--7cab1f9b-a095-4454-9408-584b2a0fdbc2"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--c45a161f-88a4-43c9-a455-88a76c87d61b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.76733Z",
+            "modified": "2026-01-23T09:45:35.76733Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--3e29b149-9a9d-42cd-97a0-bc137d716936",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.767555Z",
+            "modified": "2026-01-23T09:45:35.767555Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2c2c822b-0c5c-471f-a1c7-5842c6b3b17d",
+            "target_ref": "attack-pattern--c45a161f-88a4-43c9-a455-88a76c87d61b"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--950488e7-dce0-4a23-9da3-2185867de8d6",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.767732Z",
+            "modified": "2026-01-23T09:45:35.767732Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--1f49e271-fa26-4413-bcbe-2b99d3adf7fd",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.767952Z",
+            "modified": "2026-01-23T09:45:35.767952Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2c2c822b-0c5c-471f-a1c7-5842c6b3b17d",
+            "target_ref": "attack-pattern--950488e7-dce0-4a23-9da3-2185867de8d6"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--62a0d162-4e76-5286-b9cc-4bb02f44be7e",
+            "value": "1.24.16.14",
+            "x_opencti_description": "ISP: CHINA UNICOM China169 Backbone. Location: None, China",
+            "x_opencti_score": 62
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--6613a3d7-c05e-4839-91d3-ba1fb2eddfdc",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.611593Z",
+            "modified": "2026-01-23T09:45:35.611593Z",
+            "name": "Malicious IP: 1.24.16.14",
+            "description": "Abuse Score: 62 | ISP: CHINA UNICOM China169 Backbone | Loc: None, China | Behaviors: Brute-Force, Exploited Host, Hacking, Port Scan, Web App Attack",
+            "pattern": "[ipv4-addr:value = '1.24.16.14']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:35.611564Z",
+            "labels": [
+                "exploited-host",
+                "web-app-attack",
+                "brute-force",
+                "hacking",
+                "malicious-activity",
+                "port-scan"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 62
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--877871d9-ad37-4ec3-ac13-f6754eda5f3b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.624789Z",
+            "modified": "2026-01-23T09:45:35.624789Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--6613a3d7-c05e-4839-91d3-ba1fb2eddfdc",
+            "target_ref": "ipv4-addr--62a0d162-4e76-5286-b9cc-4bb02f44be7e"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--20f21164-5e19-4a94-8a8f-69044d69fc01",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.625212Z",
+            "modified": "2026-01-23T09:45:35.625212Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--6e17e7ad-8310-46e4-9e17-37a591ec36a6",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.625604Z",
+            "modified": "2026-01-23T09:45:35.625604Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--6613a3d7-c05e-4839-91d3-ba1fb2eddfdc",
+            "target_ref": "attack-pattern--20f21164-5e19-4a94-8a8f-69044d69fc01"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--b18c228a-2acc-4445-a96b-98eb84415f34",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.625865Z",
+            "modified": "2026-01-23T09:45:35.625865Z",
+            "name": "Compromise Infrastructure",
+            "description": "Máy chủ đã bị xâm nhập và lợi dụng.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "86f04b6a-8e78-46ca-98a9-bc32e683c2b1"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--3c558ffe-ba37-452e-8870-53128ca198b6",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.626189Z",
+            "modified": "2026-01-23T09:45:35.626189Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--6613a3d7-c05e-4839-91d3-ba1fb2eddfdc",
+            "target_ref": "attack-pattern--b18c228a-2acc-4445-a96b-98eb84415f34"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--1f3f8873-5392-427c-873a-ad67586eb22f",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.626453Z",
+            "modified": "2026-01-23T09:45:35.626453Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--38beae1a-a7e6-4e09-a5d9-ea463d988697",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.626763Z",
+            "modified": "2026-01-23T09:45:35.626763Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--6613a3d7-c05e-4839-91d3-ba1fb2eddfdc",
+            "target_ref": "attack-pattern--1f3f8873-5392-427c-873a-ad67586eb22f"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--a5434032-bd0c-4511-8277-40713a94ca47",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.627038Z",
+            "modified": "2026-01-23T09:45:35.627038Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--7d616661-7baf-4d08-a083-a17d50e8f775",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.627389Z",
+            "modified": "2026-01-23T09:45:35.627389Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--6613a3d7-c05e-4839-91d3-ba1fb2eddfdc",
+            "target_ref": "attack-pattern--a5434032-bd0c-4511-8277-40713a94ca47"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--03a0fecb-c2f9-4820-8c8a-9e7547b448a5",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.627669Z",
+            "modified": "2026-01-23T09:45:35.627669Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--93b9b7bb-0b24-4130-8235-76b55fe3b8b8",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:35.628015Z",
+            "modified": "2026-01-23T09:45:35.628015Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--6613a3d7-c05e-4839-91d3-ba1fb2eddfdc",
+            "target_ref": "attack-pattern--03a0fecb-c2f9-4820-8c8a-9e7547b448a5"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--2eb9818d-45d2-5e2a-95ed-55e31d02f98c",
+            "value": "1.24.16.23",
+            "x_opencti_description": "ISP: CHINA UNICOM China169 Backbone. Location: None, China",
+            "x_opencti_score": 52
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--910e85a7-cda1-4c76-9404-62aee7464c3d",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.11898Z",
+            "modified": "2026-01-23T09:45:36.11898Z",
+            "name": "Malicious IP: 1.24.16.23",
+            "description": "Abuse Score: 52 | ISP: CHINA UNICOM China169 Backbone | Loc: None, China | Behaviors: Bad Web Bot, Brute-Force, Hacking, Port Scan, SSH, Unknown(12), Web App Attack, Web Spam",
+            "pattern": "[ipv4-addr:value = '1.24.16.23']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:36.118967Z",
+            "labels": [
+                "ssh",
+                "bad-web-bot",
+                "web-app-attack",
+                "web-spam",
+                "brute-force",
+                "malicious-activity",
+                "port-scan",
+                "hacking",
+                "unknown(12)"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 52
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--4b54551a-7ef7-446e-9eb4-d44da75a057d",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.12608Z",
+            "modified": "2026-01-23T09:45:36.12608Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--910e85a7-cda1-4c76-9404-62aee7464c3d",
+            "target_ref": "ipv4-addr--2eb9818d-45d2-5e2a-95ed-55e31d02f98c"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--ae83ba45-3873-47c3-b5f8-8fc9ad5681db",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.126333Z",
+            "modified": "2026-01-23T09:45:36.126333Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--1fdcdf16-2c60-4367-b262-f74eee3e7099",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.126543Z",
+            "modified": "2026-01-23T09:45:36.126543Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--910e85a7-cda1-4c76-9404-62aee7464c3d",
+            "target_ref": "attack-pattern--ae83ba45-3873-47c3-b5f8-8fc9ad5681db"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--5ef6f53e-7ba4-4c92-a8d9-6beb7242bbc1",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.126684Z",
+            "modified": "2026-01-23T09:45:36.126684Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--c4297f3b-de5c-40d3-8ee6-6bd3f9993f04",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.12685Z",
+            "modified": "2026-01-23T09:45:36.12685Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--910e85a7-cda1-4c76-9404-62aee7464c3d",
+            "target_ref": "attack-pattern--5ef6f53e-7ba4-4c92-a8d9-6beb7242bbc1"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--9cf7ec68-3f52-4402-80b9-6b1ef2bdf0e0",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.126967Z",
+            "modified": "2026-01-23T09:45:36.126967Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--b258b6aa-d9c9-47ae-a6f4-a07e90920beb",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.127113Z",
+            "modified": "2026-01-23T09:45:36.127113Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--910e85a7-cda1-4c76-9404-62aee7464c3d",
+            "target_ref": "attack-pattern--9cf7ec68-3f52-4402-80b9-6b1ef2bdf0e0"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--d5a8feb7-c885-425a-8f00-af8ab6049ab8",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.127223Z",
+            "modified": "2026-01-23T09:45:36.127223Z",
+            "name": "Brute Force: Password Guessing",
+            "description": "Kẻ tấn công cố gắng đoán mật khẩu SSH.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "9dbf9f63-ea71-4d2c-9828-56455eb37d4d"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--35886f1e-9c91-4b0d-8a0a-f2d21dae3e50",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.12736Z",
+            "modified": "2026-01-23T09:45:36.12736Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--910e85a7-cda1-4c76-9404-62aee7464c3d",
+            "target_ref": "attack-pattern--d5a8feb7-c885-425a-8f00-af8ab6049ab8"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--d69db39b-c7d6-4bc2-9910-9d11e13aa77c",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.12747Z",
+            "modified": "2026-01-23T09:45:36.12747Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--bd23a67e-f0ef-439b-8f39-1c6ec4b719aa",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.12761Z",
+            "modified": "2026-01-23T09:45:36.12761Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--910e85a7-cda1-4c76-9404-62aee7464c3d",
+            "target_ref": "attack-pattern--d69db39b-c7d6-4bc2-9910-9d11e13aa77c"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--63a32ea2-d9b4-545d-a14c-1ff9bf8d6b66",
+            "value": "1.24.16.24",
+            "x_opencti_description": "ISP: CHINA UNICOM China169 Backbone. Location: None, China",
+            "x_opencti_score": 72
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--1e5cb5ab-a67c-4da3-83d3-d166e0ab268e",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.074217Z",
+            "modified": "2026-01-23T09:45:36.074217Z",
+            "name": "Malicious IP: 1.24.16.24",
+            "description": "Abuse Score: 72 | ISP: CHINA UNICOM China169 Backbone | Loc: None, China | Behaviors: Bad Web Bot, Brute-Force, Email Spam, Exploited Host, Hacking, Port Scan, SSH, Unknown(12), Unknown(17), Unknown(7), Web App Attack, Web Spam",
+            "pattern": "[ipv4-addr:value = '1.24.16.24']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:36.074183Z",
+            "labels": [
+                "brute-force",
+                "malicious-activity",
+                "email-spam",
+                "web-spam",
+                "web-app-attack",
+                "port-scan",
+                "unknown(12)",
+                "unknown(7)",
+                "bad-web-bot",
+                "exploited-host",
+                "ssh",
+                "unknown(17)",
+                "hacking"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 72
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--17c9b02a-edcb-43a9-ad61-829aff865e2b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.095531Z",
+            "modified": "2026-01-23T09:45:36.095531Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--1e5cb5ab-a67c-4da3-83d3-d166e0ab268e",
+            "target_ref": "ipv4-addr--63a32ea2-d9b4-545d-a14c-1ff9bf8d6b66"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--5042efdb-b019-4e6d-a970-b1b88ebdfde2",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.096092Z",
+            "modified": "2026-01-23T09:45:36.096092Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--1e2c0208-32df-4a62-bc57-d28db46cca59",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.096531Z",
+            "modified": "2026-01-23T09:45:36.096531Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--1e5cb5ab-a67c-4da3-83d3-d166e0ab268e",
+            "target_ref": "attack-pattern--5042efdb-b019-4e6d-a970-b1b88ebdfde2"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--bfcb51f3-126c-462b-ba36-eaef0edc4540",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.096834Z",
+            "modified": "2026-01-23T09:45:36.096834Z",
+            "name": "Compromise Infrastructure",
+            "description": "Máy chủ đã bị xâm nhập và lợi dụng.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "86f04b6a-8e78-46ca-98a9-bc32e683c2b1"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--32895540-107b-4b73-970f-dbb07ef6cabe",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.097314Z",
+            "modified": "2026-01-23T09:45:36.097314Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--1e5cb5ab-a67c-4da3-83d3-d166e0ab268e",
+            "target_ref": "attack-pattern--bfcb51f3-126c-462b-ba36-eaef0edc4540"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--c6c2dd6b-db57-441d-b945-a02d86522a78",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.097674Z",
+            "modified": "2026-01-23T09:45:36.097674Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--9198d84f-a2a5-4477-b07d-779ca36d4938",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.098113Z",
+            "modified": "2026-01-23T09:45:36.098113Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--1e5cb5ab-a67c-4da3-83d3-d166e0ab268e",
+            "target_ref": "attack-pattern--c6c2dd6b-db57-441d-b945-a02d86522a78"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--c310fdef-705f-499f-810b-2d51efaa284c",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.098445Z",
+            "modified": "2026-01-23T09:45:36.098445Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--7391a63f-2353-4d40-b531-b76e06b48cec",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.098831Z",
+            "modified": "2026-01-23T09:45:36.098831Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--1e5cb5ab-a67c-4da3-83d3-d166e0ab268e",
+            "target_ref": "attack-pattern--c310fdef-705f-499f-810b-2d51efaa284c"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--69f45756-dff6-448c-a473-6287180a887b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.099165Z",
+            "modified": "2026-01-23T09:45:36.099165Z",
+            "name": "Brute Force: Password Guessing",
+            "description": "Kẻ tấn công cố gắng đoán mật khẩu SSH.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "9dbf9f63-ea71-4d2c-9828-56455eb37d4d"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--23c264bf-8b31-47a7-ae2d-5826d5bf43e5",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.099549Z",
+            "modified": "2026-01-23T09:45:36.099549Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--1e5cb5ab-a67c-4da3-83d3-d166e0ab268e",
+            "target_ref": "attack-pattern--69f45756-dff6-448c-a473-6287180a887b"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--8b382af2-e7df-46f3-ae2b-5bb6c9d2d19a",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.099841Z",
+            "modified": "2026-01-23T09:45:36.099841Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--c944edad-1f1d-47f0-a232-539c87b510e8",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.100191Z",
+            "modified": "2026-01-23T09:45:36.100191Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--1e5cb5ab-a67c-4da3-83d3-d166e0ab268e",
+            "target_ref": "attack-pattern--8b382af2-e7df-46f3-ae2b-5bb6c9d2d19a"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--7396b7f6-4cad-5803-90ce-0c68b72afb88",
+            "value": "1.24.16.29",
+            "x_opencti_description": "ISP: CHINA UNICOM China169 Backbone. Location: None, China",
+            "x_opencti_score": 63
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--9e318501-49b8-46d7-853a-51c18da9b660",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.062341Z",
+            "modified": "2026-01-23T09:45:36.062341Z",
+            "name": "Malicious IP: 1.24.16.29",
+            "description": "Abuse Score: 63 | ISP: CHINA UNICOM China169 Backbone | Loc: None, China | Behaviors: Bad Web Bot, Brute-Force, Hacking, Port Scan, SSH, Web App Attack",
+            "pattern": "[ipv4-addr:value = '1.24.16.29']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:36.062312Z",
+            "labels": [
+                "brute-force",
+                "web-app-attack",
+                "port-scan",
+                "hacking",
+                "bad-web-bot",
+                "malicious-activity",
+                "ssh"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 63
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--bc328a57-f0a6-481b-bf3b-cbfd045f0a10",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.076965Z",
+            "modified": "2026-01-23T09:45:36.076965Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--9e318501-49b8-46d7-853a-51c18da9b660",
+            "target_ref": "ipv4-addr--7396b7f6-4cad-5803-90ce-0c68b72afb88"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--2fc2d759-cc14-4d5a-8482-9b98d9bfb3ec",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.077513Z",
+            "modified": "2026-01-23T09:45:36.077513Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--1d7a31a2-4434-42dc-ae11-2da59930be0d",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.078017Z",
+            "modified": "2026-01-23T09:45:36.078017Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--9e318501-49b8-46d7-853a-51c18da9b660",
+            "target_ref": "attack-pattern--2fc2d759-cc14-4d5a-8482-9b98d9bfb3ec"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--9137b769-c0e6-416d-a8f5-7993ed029370",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.078299Z",
+            "modified": "2026-01-23T09:45:36.078299Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--581ba057-7cca-43c2-bdb2-06d1cb24a8b7",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.078623Z",
+            "modified": "2026-01-23T09:45:36.078623Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--9e318501-49b8-46d7-853a-51c18da9b660",
+            "target_ref": "attack-pattern--9137b769-c0e6-416d-a8f5-7993ed029370"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--fb75ac55-8179-41a7-a5ef-19d02f8bf25f",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.078895Z",
+            "modified": "2026-01-23T09:45:36.078895Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--a5bc517f-e5e0-4984-8560-98b8609d2322",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.079213Z",
+            "modified": "2026-01-23T09:45:36.079213Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--9e318501-49b8-46d7-853a-51c18da9b660",
+            "target_ref": "attack-pattern--fb75ac55-8179-41a7-a5ef-19d02f8bf25f"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--12e6e507-14a0-4978-a24c-b2dbb7309787",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.079456Z",
+            "modified": "2026-01-23T09:45:36.079456Z",
+            "name": "Brute Force: Password Guessing",
+            "description": "Kẻ tấn công cố gắng đoán mật khẩu SSH.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "9dbf9f63-ea71-4d2c-9828-56455eb37d4d"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--37dc9fd3-9513-48a0-94fa-a5ed24753a18",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.079749Z",
+            "modified": "2026-01-23T09:45:36.079749Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--9e318501-49b8-46d7-853a-51c18da9b660",
+            "target_ref": "attack-pattern--12e6e507-14a0-4978-a24c-b2dbb7309787"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--b53702ef-c861-4524-a4b5-353922965c97",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.079986Z",
+            "modified": "2026-01-23T09:45:36.079986Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--b370d3c3-d771-4bd3-b86f-647a5f795cdb",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.080282Z",
+            "modified": "2026-01-23T09:45:36.080282Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--9e318501-49b8-46d7-853a-51c18da9b660",
+            "target_ref": "attack-pattern--b53702ef-c861-4524-a4b5-353922965c97"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--fdf4e43b-5725-582a-91e8-2fcdd980c194",
+            "value": "1.24.16.34",
+            "x_opencti_description": "ISP: CHINA UNICOM China169 Backbone. Location: None, China",
+            "x_opencti_score": 67
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--a5d7982e-c617-43ec-a01f-26e0958fd686",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.07626Z",
+            "modified": "2026-01-23T09:45:36.07626Z",
+            "name": "Malicious IP: 1.24.16.34",
+            "description": "Abuse Score: 67 | ISP: CHINA UNICOM China169 Backbone | Loc: None, China | Behaviors: Bad Web Bot, Brute-Force, Exploited Host, Hacking, Port Scan, SSH, Unknown(12), Web App Attack, Web Spam",
+            "pattern": "[ipv4-addr:value = '1.24.16.34']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:36.076228Z",
+            "labels": [
+                "brute-force",
+                "ssh",
+                "exploited-host",
+                "web-spam",
+                "unknown(12)",
+                "malicious-activity",
+                "bad-web-bot",
+                "web-app-attack",
+                "port-scan",
+                "hacking"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 67
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--67bdee3f-2ba3-4d1c-9d72-6fb20d67a586",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.095593Z",
+            "modified": "2026-01-23T09:45:36.095593Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--a5d7982e-c617-43ec-a01f-26e0958fd686",
+            "target_ref": "ipv4-addr--fdf4e43b-5725-582a-91e8-2fcdd980c194"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--273bb9a2-6143-40d5-8668-ed06f18431a1",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.096021Z",
+            "modified": "2026-01-23T09:45:36.096021Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--656d51b2-04db-44e7-b4ea-9b6a611bfaa6",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.096443Z",
+            "modified": "2026-01-23T09:45:36.096443Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--a5d7982e-c617-43ec-a01f-26e0958fd686",
+            "target_ref": "attack-pattern--273bb9a2-6143-40d5-8668-ed06f18431a1"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--f077b11e-df9e-42f5-8266-fbe772a97e4a",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.096805Z",
+            "modified": "2026-01-23T09:45:36.096805Z",
+            "name": "Compromise Infrastructure",
+            "description": "Máy chủ đã bị xâm nhập và lợi dụng.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "86f04b6a-8e78-46ca-98a9-bc32e683c2b1"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--7f982231-8f6d-4a84-958b-ebcaebc61291",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.097252Z",
+            "modified": "2026-01-23T09:45:36.097252Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--a5d7982e-c617-43ec-a01f-26e0958fd686",
+            "target_ref": "attack-pattern--f077b11e-df9e-42f5-8266-fbe772a97e4a"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--63e26273-d001-4ab2-8619-ef7f347e26f2",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.097576Z",
+            "modified": "2026-01-23T09:45:36.097576Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--0f0231b5-3da6-416b-97b9-123b6bd41f67",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.097941Z",
+            "modified": "2026-01-23T09:45:36.097941Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--a5d7982e-c617-43ec-a01f-26e0958fd686",
+            "target_ref": "attack-pattern--63e26273-d001-4ab2-8619-ef7f347e26f2"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--d532e685-f429-4035-930a-ffbefff7a681",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.098283Z",
+            "modified": "2026-01-23T09:45:36.098283Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--4fd1dc38-1788-4acb-9cd5-01e63d59ae2c",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.098709Z",
+            "modified": "2026-01-23T09:45:36.098709Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--a5d7982e-c617-43ec-a01f-26e0958fd686",
+            "target_ref": "attack-pattern--d532e685-f429-4035-930a-ffbefff7a681"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--8ece1832-dc29-49cf-a9d5-c493dcc6213d",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.099046Z",
+            "modified": "2026-01-23T09:45:36.099046Z",
+            "name": "Brute Force: Password Guessing",
+            "description": "Kẻ tấn công cố gắng đoán mật khẩu SSH.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "9dbf9f63-ea71-4d2c-9828-56455eb37d4d"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--3ab73a7d-ce17-45bb-ba25-cc9bf4e41677",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.099445Z",
+            "modified": "2026-01-23T09:45:36.099445Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--a5d7982e-c617-43ec-a01f-26e0958fd686",
+            "target_ref": "attack-pattern--8ece1832-dc29-49cf-a9d5-c493dcc6213d"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--edcec3fc-b53d-4ead-8681-60c51305a94a",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.099643Z",
+            "modified": "2026-01-23T09:45:36.099643Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--ffd52cc3-868b-4895-a259-51ac54226303",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:36.099902Z",
+            "modified": "2026-01-23T09:45:36.099902Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--a5d7982e-c617-43ec-a01f-26e0958fd686",
+            "target_ref": "attack-pattern--edcec3fc-b53d-4ead-8681-60c51305a94a"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--a43ae4fc-8a44-543f-a6ce-9f34b23b8f13",
+            "value": "1.24.16.37",
+            "x_opencti_description": "ISP: CHINA UNICOM China169 Backbone. Location: None, China",
+            "x_opencti_score": 34
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--2b8b0525-9deb-4e1e-ad8a-bfe76f3291c1",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.515988Z",
+            "modified": "2026-01-23T09:45:43.515988Z",
+            "name": "Malicious IP: 1.24.16.37",
+            "description": "Abuse Score: 34 | ISP: CHINA UNICOM China169 Backbone | Loc: None, China | Behaviors: Brute-Force, Exploited Host, Hacking, Port Scan, Web App Attack",
+            "pattern": "[ipv4-addr:value = '1.24.16.37']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:43.515962Z",
+            "labels": [
+                "exploited-host",
+                "web-app-attack",
+                "hacking",
+                "malicious-activity",
+                "port-scan",
+                "brute-force"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 34
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--bb71d888-4b71-44d0-9fc7-5ae4bd363430",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.51713Z",
+            "modified": "2026-01-23T09:45:43.51713Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--2b8b0525-9deb-4e1e-ad8a-bfe76f3291c1",
+            "target_ref": "ipv4-addr--a43ae4fc-8a44-543f-a6ce-9f34b23b8f13"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--0545effa-f1af-4611-a9b9-d84e4a9469c2",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.517409Z",
+            "modified": "2026-01-23T09:45:43.517409Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--d4ea9bd0-973c-46a1-879b-043423c643a5",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.51769Z",
+            "modified": "2026-01-23T09:45:43.51769Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2b8b0525-9deb-4e1e-ad8a-bfe76f3291c1",
+            "target_ref": "attack-pattern--0545effa-f1af-4611-a9b9-d84e4a9469c2"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--c6d87b9d-5ae8-44e0-b6f5-0d959676414d",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.517975Z",
+            "modified": "2026-01-23T09:45:43.517975Z",
+            "name": "Compromise Infrastructure",
+            "description": "Máy chủ đã bị xâm nhập và lợi dụng.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "86f04b6a-8e78-46ca-98a9-bc32e683c2b1"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--ce49bef5-0c45-46bc-83f1-a5fded3e9bf0",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.518292Z",
+            "modified": "2026-01-23T09:45:43.518292Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2b8b0525-9deb-4e1e-ad8a-bfe76f3291c1",
+            "target_ref": "attack-pattern--c6d87b9d-5ae8-44e0-b6f5-0d959676414d"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--363cab1b-e98f-4f4b-aa33-ed4d9d28b503",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.518528Z",
+            "modified": "2026-01-23T09:45:43.518528Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--998b1af8-e7e1-45ec-bb9e-e77b3a8021ab",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.518822Z",
+            "modified": "2026-01-23T09:45:43.518822Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2b8b0525-9deb-4e1e-ad8a-bfe76f3291c1",
+            "target_ref": "attack-pattern--363cab1b-e98f-4f4b-aa33-ed4d9d28b503"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--c4d20922-6911-4df0-a11d-1c34decd608a",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.519098Z",
+            "modified": "2026-01-23T09:45:43.519098Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--3de66f68-b91c-4020-a865-dbb48443cbf2",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.519489Z",
+            "modified": "2026-01-23T09:45:43.519489Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2b8b0525-9deb-4e1e-ad8a-bfe76f3291c1",
+            "target_ref": "attack-pattern--c4d20922-6911-4df0-a11d-1c34decd608a"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--36eaa8e1-51da-48d7-b810-b048caf655a1",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.519717Z",
+            "modified": "2026-01-23T09:45:43.519717Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--8b5d7a9f-ac19-43a4-a5f8-33b6b79f55b3",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.520015Z",
+            "modified": "2026-01-23T09:45:43.520015Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2b8b0525-9deb-4e1e-ad8a-bfe76f3291c1",
+            "target_ref": "attack-pattern--36eaa8e1-51da-48d7-b810-b048caf655a1"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--b7ce959e-d1c5-51f2-9371-8fe918bb9d0c",
+            "value": "1.24.16.38",
+            "x_opencti_description": "ISP: CHINA UNICOM China169 Backbone. Location: None, China",
+            "x_opencti_score": 67
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--d2a1ec0a-604e-4877-91cd-d79b949ba582",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.489592Z",
+            "modified": "2026-01-23T09:45:43.489592Z",
+            "name": "Malicious IP: 1.24.16.38",
+            "description": "Abuse Score: 67 | ISP: CHINA UNICOM China169 Backbone | Loc: None, China | Behaviors: Bad Web Bot, Brute-Force, Email Spam, Exploited Host, Hacking, Port Scan, SSH, Unknown(12), Unknown(7), Web App Attack, Web Spam",
+            "pattern": "[ipv4-addr:value = '1.24.16.38']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:43.48957Z",
+            "labels": [
+                "port-scan",
+                "brute-force",
+                "email-spam",
+                "bad-web-bot",
+                "web-app-attack",
+                "ssh",
+                "unknown(7)",
+                "hacking",
+                "malicious-activity",
+                "web-spam",
+                "exploited-host",
+                "unknown(12)"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 67
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--fd4f4cf6-a292-415a-8353-20d3d12e8302",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.491093Z",
+            "modified": "2026-01-23T09:45:43.491093Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--d2a1ec0a-604e-4877-91cd-d79b949ba582",
+            "target_ref": "ipv4-addr--b7ce959e-d1c5-51f2-9371-8fe918bb9d0c"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--aa5cbc90-933b-4051-bbc6-b6b5721a0f4c",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.49142Z",
+            "modified": "2026-01-23T09:45:43.49142Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--7809a477-b81e-4259-971a-1fd446ae864d",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.49176Z",
+            "modified": "2026-01-23T09:45:43.49176Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--d2a1ec0a-604e-4877-91cd-d79b949ba582",
+            "target_ref": "attack-pattern--aa5cbc90-933b-4051-bbc6-b6b5721a0f4c"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--0c6d4db9-7e1a-4ff8-a87a-e74c21c525f3",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.491989Z",
+            "modified": "2026-01-23T09:45:43.491989Z",
+            "name": "Compromise Infrastructure",
+            "description": "Máy chủ đã bị xâm nhập và lợi dụng.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "86f04b6a-8e78-46ca-98a9-bc32e683c2b1"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--581cb236-c3f1-4fa2-9ac0-11cc9cdf4e3b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.492298Z",
+            "modified": "2026-01-23T09:45:43.492298Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--d2a1ec0a-604e-4877-91cd-d79b949ba582",
+            "target_ref": "attack-pattern--0c6d4db9-7e1a-4ff8-a87a-e74c21c525f3"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--8a7568c6-38e4-4882-867e-af5af80c82b5",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.492511Z",
+            "modified": "2026-01-23T09:45:43.492511Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--02854d66-d0d7-46b6-8658-1f9a64fabfb3",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.492779Z",
+            "modified": "2026-01-23T09:45:43.492779Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--d2a1ec0a-604e-4877-91cd-d79b949ba582",
+            "target_ref": "attack-pattern--8a7568c6-38e4-4882-867e-af5af80c82b5"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--e089f65b-1794-45ba-a5a5-5410bede1e3f",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.492996Z",
+            "modified": "2026-01-23T09:45:43.492996Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--bc0a8923-4f73-4b23-a439-6e8c2f757f2a",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.493261Z",
+            "modified": "2026-01-23T09:45:43.493261Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--d2a1ec0a-604e-4877-91cd-d79b949ba582",
+            "target_ref": "attack-pattern--e089f65b-1794-45ba-a5a5-5410bede1e3f"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--0c59d6ee-f8c0-4ded-971d-d6ba7f3c7e48",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.493469Z",
+            "modified": "2026-01-23T09:45:43.493469Z",
+            "name": "Brute Force: Password Guessing",
+            "description": "Kẻ tấn công cố gắng đoán mật khẩu SSH.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "9dbf9f63-ea71-4d2c-9828-56455eb37d4d"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--d200e3b4-9d15-416b-83cb-a46dbc7b74d9",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.493728Z",
+            "modified": "2026-01-23T09:45:43.493728Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--d2a1ec0a-604e-4877-91cd-d79b949ba582",
+            "target_ref": "attack-pattern--0c59d6ee-f8c0-4ded-971d-d6ba7f3c7e48"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--249cee2e-3bef-45d5-86a9-379f7a10bcef",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.493932Z",
+            "modified": "2026-01-23T09:45:43.493932Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--ca810904-8b52-4b70-b74d-e963ee93b53c",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.4942Z",
+            "modified": "2026-01-23T09:45:43.4942Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--d2a1ec0a-604e-4877-91cd-d79b949ba582",
+            "target_ref": "attack-pattern--249cee2e-3bef-45d5-86a9-379f7a10bcef"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--0d6744fd-36a5-581e-b486-57fb8d6614ea",
+            "value": "1.24.16.42",
+            "x_opencti_description": "ISP: CHINA UNICOM China169 Backbone. Location: None, China",
+            "x_opencti_score": 53
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--8e65dcff-04df-4a6e-9332-3f80f450cfb3",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.51464Z",
+            "modified": "2026-01-23T09:45:43.51464Z",
+            "name": "Malicious IP: 1.24.16.42",
+            "description": "Abuse Score: 53 | ISP: CHINA UNICOM China169 Backbone | Loc: None, China | Behaviors: Brute-Force, Email Spam, Hacking, Port Scan, SSH, Unknown(17), Unknown(7), Web App Attack",
+            "pattern": "[ipv4-addr:value = '1.24.16.42']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:43.514606Z",
+            "labels": [
+                "ssh",
+                "unknown(7)",
+                "web-app-attack",
+                "brute-force",
+                "hacking",
+                "malicious-activity",
+                "port-scan",
+                "unknown(17)",
+                "email-spam"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 53
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--3344862b-6a9e-4704-b4d3-8c6ae8d81f05",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.515943Z",
+            "modified": "2026-01-23T09:45:43.515943Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--8e65dcff-04df-4a6e-9332-3f80f450cfb3",
+            "target_ref": "ipv4-addr--0d6744fd-36a5-581e-b486-57fb8d6614ea"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--222947c7-2483-48b9-aa70-f343c05e8a44",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.516218Z",
+            "modified": "2026-01-23T09:45:43.516218Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--4cb8b58c-3aac-4cb1-9b08-e2f517d55b32",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.516535Z",
+            "modified": "2026-01-23T09:45:43.516535Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--8e65dcff-04df-4a6e-9332-3f80f450cfb3",
+            "target_ref": "attack-pattern--222947c7-2483-48b9-aa70-f343c05e8a44"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--ab7cd3fd-8fd8-4f30-b62b-838616f20a2d",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.516739Z",
+            "modified": "2026-01-23T09:45:43.516739Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--a0fd9d67-a9e3-47a3-b22e-7b1ac9cfe274",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.516982Z",
+            "modified": "2026-01-23T09:45:43.516982Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--8e65dcff-04df-4a6e-9332-3f80f450cfb3",
+            "target_ref": "attack-pattern--ab7cd3fd-8fd8-4f30-b62b-838616f20a2d"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--2e8d0477-fc31-4bed-b96a-41f6faff151b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.517166Z",
+            "modified": "2026-01-23T09:45:43.517166Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--e39c3cd8-b1ea-4d28-b2c6-dd7d811d7561",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.517388Z",
+            "modified": "2026-01-23T09:45:43.517388Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--8e65dcff-04df-4a6e-9332-3f80f450cfb3",
+            "target_ref": "attack-pattern--2e8d0477-fc31-4bed-b96a-41f6faff151b"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--f8f7d05b-2a19-4b6d-948f-8137ec88687c",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.517562Z",
+            "modified": "2026-01-23T09:45:43.517562Z",
+            "name": "Brute Force: Password Guessing",
+            "description": "Kẻ tấn công cố gắng đoán mật khẩu SSH.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "9dbf9f63-ea71-4d2c-9828-56455eb37d4d"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--6d065632-a91a-4071-9f8f-a76c2235b69b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.517868Z",
+            "modified": "2026-01-23T09:45:43.517868Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--8e65dcff-04df-4a6e-9332-3f80f450cfb3",
+            "target_ref": "attack-pattern--f8f7d05b-2a19-4b6d-948f-8137ec88687c"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--9653c632-8f2b-41f9-9a46-63347dea0656",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.518142Z",
+            "modified": "2026-01-23T09:45:43.518142Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--837ead27-6009-4383-becb-a25b286988a0",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.518383Z",
+            "modified": "2026-01-23T09:45:43.518383Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--8e65dcff-04df-4a6e-9332-3f80f450cfb3",
+            "target_ref": "attack-pattern--9653c632-8f2b-41f9-9a46-63347dea0656"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--c9c565f9-4b48-5467-a116-9faef041ffe5",
+            "value": "1.24.16.44",
+            "x_opencti_description": "ISP: CHINA UNICOM China169 Backbone. Location: None, China",
+            "x_opencti_score": 44
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--febc1b9e-717d-48ff-ba67-346924602f19",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.498064Z",
+            "modified": "2026-01-23T09:45:43.498064Z",
+            "name": "Malicious IP: 1.24.16.44",
+            "description": "Abuse Score: 44 | ISP: CHINA UNICOM China169 Backbone | Loc: None, China | Behaviors: Brute-Force, Hacking, Port Scan, SSH, Web App Attack, Web Spam",
+            "pattern": "[ipv4-addr:value = '1.24.16.44']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:43.498038Z",
+            "labels": [
+                "web-spam",
+                "hacking",
+                "malicious-activity",
+                "port-scan",
+                "web-app-attack",
+                "brute-force",
+                "ssh"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 44
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--64d5f396-78f0-4951-9624-f0b8dcda6c45",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.499065Z",
+            "modified": "2026-01-23T09:45:43.499065Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--febc1b9e-717d-48ff-ba67-346924602f19",
+            "target_ref": "ipv4-addr--c9c565f9-4b48-5467-a116-9faef041ffe5"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--34095f21-3106-4f0b-8fc1-91265b66684b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.499359Z",
+            "modified": "2026-01-23T09:45:43.499359Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--1ef67bba-806f-4fae-a6a3-9d44c96f107b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.499645Z",
+            "modified": "2026-01-23T09:45:43.499645Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--febc1b9e-717d-48ff-ba67-346924602f19",
+            "target_ref": "attack-pattern--34095f21-3106-4f0b-8fc1-91265b66684b"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--b3cea61f-f445-494b-a569-43d5737a2f08",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.499845Z",
+            "modified": "2026-01-23T09:45:43.499845Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--14e975c5-2148-4f50-a694-91c37a56b640",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.500085Z",
+            "modified": "2026-01-23T09:45:43.500085Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--febc1b9e-717d-48ff-ba67-346924602f19",
+            "target_ref": "attack-pattern--b3cea61f-f445-494b-a569-43d5737a2f08"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--da4b372d-4f6b-439a-9788-8dc3fb699f70",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.500272Z",
+            "modified": "2026-01-23T09:45:43.500272Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--41fff7ba-4216-4de4-90ab-a5ee264c702c",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.5005Z",
+            "modified": "2026-01-23T09:45:43.5005Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--febc1b9e-717d-48ff-ba67-346924602f19",
+            "target_ref": "attack-pattern--da4b372d-4f6b-439a-9788-8dc3fb699f70"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--998f370c-6e66-457d-87c5-b0f02004de2f",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.500692Z",
+            "modified": "2026-01-23T09:45:43.500692Z",
+            "name": "Brute Force: Password Guessing",
+            "description": "Kẻ tấn công cố gắng đoán mật khẩu SSH.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "9dbf9f63-ea71-4d2c-9828-56455eb37d4d"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--e094c0cc-cc2c-4ad3-89a2-10fbf209cbf5",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.500928Z",
+            "modified": "2026-01-23T09:45:43.500928Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--febc1b9e-717d-48ff-ba67-346924602f19",
+            "target_ref": "attack-pattern--998f370c-6e66-457d-87c5-b0f02004de2f"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--c1f5c8ff-612a-4b32-8946-1ce830c4d294",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.501112Z",
+            "modified": "2026-01-23T09:45:43.501112Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--1d576164-4ac5-44ec-9b68-00ce46b62c6f",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.501364Z",
+            "modified": "2026-01-23T09:45:43.501364Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--febc1b9e-717d-48ff-ba67-346924602f19",
+            "target_ref": "attack-pattern--c1f5c8ff-612a-4b32-8946-1ce830c4d294"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--5499cbeb-8afc-539b-b29c-840f9834844f",
+            "value": "1.24.16.55",
+            "x_opencti_description": "ISP: CHINA UNICOM China169 Backbone. Location: None, China",
+            "x_opencti_score": 77
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--c6238c86-1c9f-4170-bdbe-77ccddd6b2ef",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.679423Z",
+            "modified": "2026-01-23T09:45:43.679423Z",
+            "name": "Malicious IP: 1.24.16.55",
+            "description": "Abuse Score: 77 | ISP: CHINA UNICOM China169 Backbone | Loc: None, China | Behaviors: Bad Web Bot, Brute-Force, Email Spam, Exploited Host, Hacking, Port Scan, SSH, Unknown(12), Web App Attack, Web Spam",
+            "pattern": "[ipv4-addr:value = '1.24.16.55']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:43.679394Z",
+            "labels": [
+                "exploited-host",
+                "bad-web-bot",
+                "unknown(12)",
+                "hacking",
+                "brute-force",
+                "port-scan",
+                "ssh",
+                "malicious-activity",
+                "web-app-attack",
+                "web-spam",
+                "email-spam"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 77
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--832051fc-f785-471b-87ce-da2ccb4ff8f1",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.680705Z",
+            "modified": "2026-01-23T09:45:43.680705Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--c6238c86-1c9f-4170-bdbe-77ccddd6b2ef",
+            "target_ref": "ipv4-addr--5499cbeb-8afc-539b-b29c-840f9834844f"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--bdecf237-4ed9-43f9-b709-bb9705676864",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.681028Z",
+            "modified": "2026-01-23T09:45:43.681028Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--5ca9812d-04ac-4195-8a47-88c3cc32e818",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.681348Z",
+            "modified": "2026-01-23T09:45:43.681348Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--c6238c86-1c9f-4170-bdbe-77ccddd6b2ef",
+            "target_ref": "attack-pattern--bdecf237-4ed9-43f9-b709-bb9705676864"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--d16fd86e-c5fe-45ba-81b0-175325ee20ca",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.681567Z",
+            "modified": "2026-01-23T09:45:43.681567Z",
+            "name": "Compromise Infrastructure",
+            "description": "Máy chủ đã bị xâm nhập và lợi dụng.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "86f04b6a-8e78-46ca-98a9-bc32e683c2b1"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--7d77b46c-4699-4ecd-aba0-9e3dd9efc32d",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.681841Z",
+            "modified": "2026-01-23T09:45:43.681841Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--c6238c86-1c9f-4170-bdbe-77ccddd6b2ef",
+            "target_ref": "attack-pattern--d16fd86e-c5fe-45ba-81b0-175325ee20ca"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--6d9f72ef-233a-43a4-a279-7238e94b6752",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.682085Z",
+            "modified": "2026-01-23T09:45:43.682085Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--6127c335-7355-4187-a864-818a8f060e80",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.68241Z",
+            "modified": "2026-01-23T09:45:43.68241Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--c6238c86-1c9f-4170-bdbe-77ccddd6b2ef",
+            "target_ref": "attack-pattern--6d9f72ef-233a-43a4-a279-7238e94b6752"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--77424544-4822-4a58-970a-23327b335bce",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.68259Z",
+            "modified": "2026-01-23T09:45:43.68259Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--b05d3083-dc74-4350-b09b-e2233a35e612",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.682734Z",
+            "modified": "2026-01-23T09:45:43.682734Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--c6238c86-1c9f-4170-bdbe-77ccddd6b2ef",
+            "target_ref": "attack-pattern--77424544-4822-4a58-970a-23327b335bce"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--5c4cda26-34ea-40e0-b92c-7f9f70f475cf",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.68285Z",
+            "modified": "2026-01-23T09:45:43.68285Z",
+            "name": "Brute Force: Password Guessing",
+            "description": "Kẻ tấn công cố gắng đoán mật khẩu SSH.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "9dbf9f63-ea71-4d2c-9828-56455eb37d4d"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--aa69c24f-0147-4128-b8b4-62dca20cda70",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.682994Z",
+            "modified": "2026-01-23T09:45:43.682994Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--c6238c86-1c9f-4170-bdbe-77ccddd6b2ef",
+            "target_ref": "attack-pattern--5c4cda26-34ea-40e0-b92c-7f9f70f475cf"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--39b71e96-64a3-448b-86ed-1d4e5f9db941",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.683108Z",
+            "modified": "2026-01-23T09:45:43.683108Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--ef77dbb5-dad5-41c3-8426-97bb32bbcdf5",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.68325Z",
+            "modified": "2026-01-23T09:45:43.68325Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--c6238c86-1c9f-4170-bdbe-77ccddd6b2ef",
+            "target_ref": "attack-pattern--39b71e96-64a3-448b-86ed-1d4e5f9db941"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--e880478e-76ca-536e-bb43-42cffce57deb",
+            "value": "1.24.16.62",
+            "x_opencti_description": "ISP: CHINA UNICOM China169 Backbone. Location: None, China",
+            "x_opencti_score": 75
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--a4bce506-7b09-4cb1-965b-2d62cb2f153b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.429711Z",
+            "modified": "2026-01-23T09:45:43.429711Z",
+            "name": "Malicious IP: 1.24.16.62",
+            "description": "Abuse Score: 75 | ISP: CHINA UNICOM China169 Backbone | Loc: None, China | Behaviors: Bad Web Bot, Brute-Force, Exploited Host, Hacking, Port Scan, SSH, Web App Attack",
+            "pattern": "[ipv4-addr:value = '1.24.16.62']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:43.429692Z",
+            "labels": [
+                "bad-web-bot",
+                "hacking",
+                "exploited-host",
+                "ssh",
+                "malicious-activity",
+                "web-app-attack",
+                "brute-force",
+                "port-scan"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 75
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--da79c05e-a929-4882-ab2d-3d52360de2bb",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.43108Z",
+            "modified": "2026-01-23T09:45:43.43108Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--a4bce506-7b09-4cb1-965b-2d62cb2f153b",
+            "target_ref": "ipv4-addr--e880478e-76ca-536e-bb43-42cffce57deb"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--f6521758-ab6d-4feb-9633-a3ab537171a4",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.431394Z",
+            "modified": "2026-01-23T09:45:43.431394Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--bb271267-9729-49aa-ae3c-21a9864b7143",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.431714Z",
+            "modified": "2026-01-23T09:45:43.431714Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--a4bce506-7b09-4cb1-965b-2d62cb2f153b",
+            "target_ref": "attack-pattern--f6521758-ab6d-4feb-9633-a3ab537171a4"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--b2bf9808-5e1c-4670-87bf-0c1770fe8638",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.431938Z",
+            "modified": "2026-01-23T09:45:43.431938Z",
+            "name": "Compromise Infrastructure",
+            "description": "Máy chủ đã bị xâm nhập và lợi dụng.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "86f04b6a-8e78-46ca-98a9-bc32e683c2b1"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--707ed1a4-777b-4d73-99f9-75f5dc597e11",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.432205Z",
+            "modified": "2026-01-23T09:45:43.432205Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--a4bce506-7b09-4cb1-965b-2d62cb2f153b",
+            "target_ref": "attack-pattern--b2bf9808-5e1c-4670-87bf-0c1770fe8638"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--e8ab1ac7-f39c-4297-9a3c-51e8c54a17a7",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.43244Z",
+            "modified": "2026-01-23T09:45:43.43244Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--d55c181f-fd1e-4c78-956c-7fd19f166784",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.432707Z",
+            "modified": "2026-01-23T09:45:43.432707Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--a4bce506-7b09-4cb1-965b-2d62cb2f153b",
+            "target_ref": "attack-pattern--e8ab1ac7-f39c-4297-9a3c-51e8c54a17a7"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--d57f572f-697c-4319-bb6e-924ce993f2c0",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.432922Z",
+            "modified": "2026-01-23T09:45:43.432922Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--76f4cac7-0624-42a9-88c1-f2034b68353f",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.433177Z",
+            "modified": "2026-01-23T09:45:43.433177Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--a4bce506-7b09-4cb1-965b-2d62cb2f153b",
+            "target_ref": "attack-pattern--d57f572f-697c-4319-bb6e-924ce993f2c0"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--4a045e1c-f97f-4852-850c-259c35895c99",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.433387Z",
+            "modified": "2026-01-23T09:45:43.433387Z",
+            "name": "Brute Force: Password Guessing",
+            "description": "Kẻ tấn công cố gắng đoán mật khẩu SSH.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "9dbf9f63-ea71-4d2c-9828-56455eb37d4d"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--44afdee6-8d5e-4cba-b26b-afd633341f32",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.433682Z",
+            "modified": "2026-01-23T09:45:43.433682Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--a4bce506-7b09-4cb1-965b-2d62cb2f153b",
+            "target_ref": "attack-pattern--4a045e1c-f97f-4852-850c-259c35895c99"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--c5703fba-09d1-4cf3-ba44-71cb8805cec0",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.433894Z",
+            "modified": "2026-01-23T09:45:43.433894Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--1ad6c52b-d4ae-485e-8801-302218569401",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.434131Z",
+            "modified": "2026-01-23T09:45:43.434131Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--a4bce506-7b09-4cb1-965b-2d62cb2f153b",
+            "target_ref": "attack-pattern--c5703fba-09d1-4cf3-ba44-71cb8805cec0"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--34ea370a-7db8-5157-96c6-2ab0186a675f",
+            "value": "1.24.16.64",
+            "x_opencti_description": "ISP: CHINA UNICOM China169 Backbone. Location: None, China",
+            "x_opencti_score": 70
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--41761031-3415-4bc6-8690-eae31e134df5",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.69013Z",
+            "modified": "2026-01-23T09:45:43.69013Z",
+            "name": "Malicious IP: 1.24.16.64",
+            "description": "Abuse Score: 70 | ISP: CHINA UNICOM China169 Backbone | Loc: None, China | Behaviors: Bad Web Bot, Brute-Force, DDoS Attack, Exploited Host, Hacking, Port Scan, SSH, Unknown(6), Unknown(7), Web App Attack, Web Spam",
+            "pattern": "[ipv4-addr:value = '1.24.16.64']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:43.690097Z",
+            "labels": [
+                "ddos-attack",
+                "brute-force",
+                "web-app-attack",
+                "unknown(6)",
+                "port-scan",
+                "web-spam",
+                "hacking",
+                "unknown(7)",
+                "exploited-host",
+                "bad-web-bot",
+                "malicious-activity",
+                "ssh"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 70
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--7c56582d-b463-4d61-86d8-cbfd5417f4a7",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.691299Z",
+            "modified": "2026-01-23T09:45:43.691299Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--41761031-3415-4bc6-8690-eae31e134df5",
+            "target_ref": "ipv4-addr--34ea370a-7db8-5157-96c6-2ab0186a675f"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--635d71c8-ab08-4d8e-bca9-d38eecdb6c4b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.691614Z",
+            "modified": "2026-01-23T09:45:43.691614Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--8098e0f5-f649-4c31-b81e-8d92c37f8b32",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.69193Z",
+            "modified": "2026-01-23T09:45:43.69193Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--41761031-3415-4bc6-8690-eae31e134df5",
+            "target_ref": "attack-pattern--635d71c8-ab08-4d8e-bca9-d38eecdb6c4b"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--8dd2c2e5-fb8c-4f95-8810-d6a9410e2796",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.692151Z",
+            "modified": "2026-01-23T09:45:43.692151Z",
+            "name": "Network Denial of Service",
+            "description": "Tấn công từ chối dịch vụ (DDoS).",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "c696e810-6366-4554-b4ce-35324d2627c2"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--9952eb57-bfc9-4589-9f02-571129f0dad4",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.692424Z",
+            "modified": "2026-01-23T09:45:43.692424Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--41761031-3415-4bc6-8690-eae31e134df5",
+            "target_ref": "attack-pattern--8dd2c2e5-fb8c-4f95-8810-d6a9410e2796"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--c8d10396-b688-4255-90cd-e5b2d1915d74",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.692654Z",
+            "modified": "2026-01-23T09:45:43.692654Z",
+            "name": "Compromise Infrastructure",
+            "description": "Máy chủ đã bị xâm nhập và lợi dụng.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "86f04b6a-8e78-46ca-98a9-bc32e683c2b1"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--11ca00d9-f1b0-452a-8d3f-a0741009fe8c",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.692919Z",
+            "modified": "2026-01-23T09:45:43.692919Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--41761031-3415-4bc6-8690-eae31e134df5",
+            "target_ref": "attack-pattern--c8d10396-b688-4255-90cd-e5b2d1915d74"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--9a4dbf2f-6fd5-4f67-bba7-aa20a4fb7759",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.693124Z",
+            "modified": "2026-01-23T09:45:43.693124Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--ff13cbc3-5400-4b83-b320-0816af9a2a25",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.693376Z",
+            "modified": "2026-01-23T09:45:43.693376Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--41761031-3415-4bc6-8690-eae31e134df5",
+            "target_ref": "attack-pattern--9a4dbf2f-6fd5-4f67-bba7-aa20a4fb7759"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--ecdff812-d2cc-45e6-ad8c-b8ddb2c08e6b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.693584Z",
+            "modified": "2026-01-23T09:45:43.693584Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--c8973a7d-a9c0-476c-9d66-2f819fdb7d55",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.693836Z",
+            "modified": "2026-01-23T09:45:43.693836Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--41761031-3415-4bc6-8690-eae31e134df5",
+            "target_ref": "attack-pattern--ecdff812-d2cc-45e6-ad8c-b8ddb2c08e6b"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--b7a6bef4-0cc0-4935-bcba-ac9d26add6e6",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.694047Z",
+            "modified": "2026-01-23T09:45:43.694047Z",
+            "name": "Brute Force: Password Guessing",
+            "description": "Kẻ tấn công cố gắng đoán mật khẩu SSH.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "9dbf9f63-ea71-4d2c-9828-56455eb37d4d"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--ff0f0a67-305a-4b08-9c67-7467c6e43627",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.694295Z",
+            "modified": "2026-01-23T09:45:43.694295Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--41761031-3415-4bc6-8690-eae31e134df5",
+            "target_ref": "attack-pattern--b7a6bef4-0cc0-4935-bcba-ac9d26add6e6"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--c409fc6a-8938-4247-b08b-d6bf2f05f1ce",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.694489Z",
+            "modified": "2026-01-23T09:45:43.694489Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--0ac9a7d1-59c7-4543-83d9-9f05362ab492",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.694748Z",
+            "modified": "2026-01-23T09:45:43.694748Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--41761031-3415-4bc6-8690-eae31e134df5",
+            "target_ref": "attack-pattern--c409fc6a-8938-4247-b08b-d6bf2f05f1ce"
+        },
+        {
+            "type": "ipv4-addr",
+            "spec_version": "2.1",
+            "id": "ipv4-addr--ede9c201-4b37-5bfe-a27b-69d486da50c9",
+            "value": "1.24.16.66",
+            "x_opencti_description": "ISP: CHINA UNICOM China169 Backbone. Location: None, China",
+            "x_opencti_score": 67
+        },
+        {
+            "type": "indicator",
+            "spec_version": "2.1",
+            "id": "indicator--2e91dabe-9335-4397-be88-4e7cfecbd905",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.679466Z",
+            "modified": "2026-01-23T09:45:43.679466Z",
+            "name": "Malicious IP: 1.24.16.66",
+            "description": "Abuse Score: 67 | ISP: CHINA UNICOM China169 Backbone | Loc: None, China | Behaviors: Bad Web Bot, Brute-Force, Email Spam, Exploited Host, Hacking, Port Scan, SSH, Unknown(7), Web App Attack, Web Spam",
+            "pattern": "[ipv4-addr:value = '1.24.16.66']",
+            "pattern_type": "stix",
+            "pattern_version": "2.1",
+            "valid_from": "2026-01-23T16:45:43.679437Z",
+            "labels": [
+                "brute-force",
+                "ssh",
+                "exploited-host",
+                "web-spam",
+                "malicious-activity",
+                "bad-web-bot",
+                "unknown(7)",
+                "web-app-attack",
+                "port-scan",
+                "email-spam",
+                "hacking"
+            ],
+            "x_opencti_main_observable_type": "IPv4-Addr",
+            "x_opencti_score": 67
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--b8ee2abe-024b-4126-8616-996c77969e06",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.680616Z",
+            "modified": "2026-01-23T09:45:43.680616Z",
+            "relationship_type": "based-on",
+            "source_ref": "indicator--2e91dabe-9335-4397-be88-4e7cfecbd905",
+            "target_ref": "ipv4-addr--ede9c201-4b37-5bfe-a27b-69d486da50c9"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--3028152b-06f7-479e-b887-6d0c0f670fd0",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.680926Z",
+            "modified": "2026-01-23T09:45:43.680926Z",
+            "name": "Brute Force",
+            "description": "Thực hiện tấn công dò mật khẩu.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "f3c544dc-673c-4ef3-accb-53229f1ae077"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--098a0e1d-92e4-4949-b0ce-7b62874b426b",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.681245Z",
+            "modified": "2026-01-23T09:45:43.681245Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2e91dabe-9335-4397-be88-4e7cfecbd905",
+            "target_ref": "attack-pattern--3028152b-06f7-479e-b887-6d0c0f670fd0"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--5f4a84c8-012e-42cf-a8f4-db30e33b1ac2",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.681472Z",
+            "modified": "2026-01-23T09:45:43.681472Z",
+            "name": "Compromise Infrastructure",
+            "description": "Máy chủ đã bị xâm nhập và lợi dụng.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "86f04b6a-8e78-46ca-98a9-bc32e683c2b1"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--85934e32-80ad-484b-8d5b-e586f8806e8a",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.68174Z",
+            "modified": "2026-01-23T09:45:43.68174Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2e91dabe-9335-4397-be88-4e7cfecbd905",
+            "target_ref": "attack-pattern--5f4a84c8-012e-42cf-a8f4-db30e33b1ac2"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--fc5822fd-c961-4786-9a18-bbee1ed36a38",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.681948Z",
+            "modified": "2026-01-23T09:45:43.681948Z",
+            "name": "Exploitation",
+            "description": "Hành vi tấn công xâm nhập hệ thống trái phép.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "be29737e-61e3-48c9-8d2b-4d92418e977f"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--5c293837-4606-4b9c-89a6-81d6a21a8907",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.682227Z",
+            "modified": "2026-01-23T09:45:43.682227Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2e91dabe-9335-4397-be88-4e7cfecbd905",
+            "target_ref": "attack-pattern--fc5822fd-c961-4786-9a18-bbee1ed36a38"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--fb68f7eb-5006-4542-b50c-c6e7878bdda7",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.682435Z",
+            "modified": "2026-01-23T09:45:43.682435Z",
+            "name": "Active Scanning: Scanning IP Blocks",
+            "description": "Quét cổng để tìm kiếm các dịch vụ đang mở.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "41865230-0714-4e36-9304-f584443015ec"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--f497c343-5a67-4c48-97bd-84d0a36f6229",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.682634Z",
+            "modified": "2026-01-23T09:45:43.682634Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2e91dabe-9335-4397-be88-4e7cfecbd905",
+            "target_ref": "attack-pattern--fb68f7eb-5006-4542-b50c-c6e7878bdda7"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--eddc46e4-f91c-4dcb-8b9b-e40c45c4b36f",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.682751Z",
+            "modified": "2026-01-23T09:45:43.682751Z",
+            "name": "Brute Force: Password Guessing",
+            "description": "Kẻ tấn công cố gắng đoán mật khẩu SSH.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "9dbf9f63-ea71-4d2c-9828-56455eb37d4d"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--7d7514b1-2f62-4ca5-a639-f350a4c01de8",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.68289Z",
+            "modified": "2026-01-23T09:45:43.68289Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2e91dabe-9335-4397-be88-4e7cfecbd905",
+            "target_ref": "attack-pattern--eddc46e4-f91c-4dcb-8b9b-e40c45c4b36f"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--f58f6c9a-6503-4408-9e58-5ba51ba62c40",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.683004Z",
+            "modified": "2026-01-23T09:45:43.683004Z",
+            "name": "Exploit Public Facing Application",
+            "description": "Tấn công vào các lỗ hổng của ứng dụng web.",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "external_id": "3f886f2a-874f-4333-b794-60ef52956f27"
+                }
+            ]
+        },
+        {
+            "type": "relationship",
+            "spec_version": "2.1",
+            "id": "relationship--9fc9d0c9-ffbe-4058-a3b6-2446edd2a1c9",
+            "created_by_ref": "identity--8b6adcfd-5f73-4a03-ba5b-06abbd89e6fb",
+            "created": "2026-01-23T09:45:43.683145Z",
+            "modified": "2026-01-23T09:45:43.683145Z",
+            "relationship_type": "indicates",
+            "source_ref": "indicator--2e91dabe-9335-4397-be88-4e7cfecbd905",
+            "target_ref": "attack-pattern--f58f6c9a-6503-4408-9e58-5ba51ba62c40"
+        }
+    ]
+}

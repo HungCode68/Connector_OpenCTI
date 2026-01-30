@@ -1,12 +1,12 @@
 connector:
-  name: 'AbuseIPDB & GreyNoise Enrichment'
+  name: 'AbuseIPDB & GreyNoise & ThreatFox Enrichment'
   scope: 'ipv4-addr'
   log_level: 'info'
-  exposure_time: 24h # Chạy lại sau mỗi 24 giờ
+  exposure_time: 24h 
 
 custom_feed:
   file_path: '../data/iblocklist_ciarmy_malicious.netset'
-  output_path: '../data/stix2_output3.json'
+  output_path: '../data/stix2_output4.json'
   abuseipdb_key: '0b52498a0d94f34992c33eb0e2dc4e383b3f5f88d0a6790fd9ade9c2ac6e6dee2d76d1637808fef1'
   greynoise_key: '52b2491d-e425-4b80-aee9-df5a0043d7b3'
   threatfox_key: '202ede49d966a0e936060912f2b58b041dd10e5c9e3b32a9'
