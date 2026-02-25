@@ -4,3 +4,5 @@ geoip2
 pyyaml
 python-dotenv
 pycti==6.4.2
+python-whois    
+dnspython

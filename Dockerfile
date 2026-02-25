@@ -11,6 +11,7 @@ ENV PYTHONUNBUFFERED=1
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     libmagic1 \
+    whois \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy file requirements và cài đặt thư viện trước (giúp tận dụng cache của Docker)
