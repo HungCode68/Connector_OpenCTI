@@ -1,14 +1,97 @@
+opencti:
+  url: ""
+  token: ""
+
 connector:
-  name: 'AbuseIPDB & GreyNoise & ThreatFox Enrichment'
-  scope: 'ipv4-addr'
+  name: 'MTHCHT Awesome-Lists Connector'
+  scope: 'multiple' 
   log_level: 'info'
   exposure_time: 24h 
 
-custom_feed:
-  file_path: '../data/iblocklist_ciarmy_malicious.netset'
-  output_path: '../data/stix2_output4.json'
-  abuseipdb_key: '0b52498a0d94f34992c33eb0e2dc4e383b3f5f88d0a6790fd9ade9c2ac6e6dee2d76d1637808fef1'
-  greynoise_key: '52b2491d-e425-4b80-aee9-df5a0043d7b3'
-  threatfox_key: '202ede49d966a0e936060912f2b58b041dd10e5c9e3b32a9'
+keys:
+  abuseipdb: '0b52498a0d94f34992c33eb0e2dc4e383b3f5f88d0a6790fd9ade9c2ac6e6dee2d76d1637808fef1'
+  greynoise: '52b2491d-e425-4b80-aee9-df5a0043d7b3'
+  threatfox: '202ede49d966a0e936060912f2b58b041dd10e5c9e3b32a9' 
+  virustotal: '691e02d7ff7f56a4f24ca05804309ae3a539fe67ee093864aa79050e41573f28' 
   geoip_asn_path: '../data/GeoLite2-ASN.mmdb'
   geoip_city_path: '../data/GeoLite2-City.mmdb'
+
+# Cấu hình danh sách các nguồn dữ liệu từ repo mthcht
+feeds:
+  # Xử lý IP VPN
+  # - path: '../data/VPN_ALL_IP_List.csv'
+  #   type: 'ip'
+  #   tags: []
+  #   description: 'NordVPN known exit nodes'
+
+  # Xử lý Driver độc hại (Hash)
+  # - path: '../data/loldrivers_only_hashes_list.csv'
+  #   type: 'sha256'
+  #   tags: []
+  #   description: 'Vulnerable and malicious drivers (LOLDrivers)'
+
+  # Xử lý Domain Phishing
+  # - path: '../data/TOP1M_domains.csv'
+  #   type: 'domain'
+  #   tags: []
+  #   description: 'Phishing domains collection'
+
+  #  URL Phishing
+  # - path: '../data/phishing_urls.csv' # Ví dụ file chứa URL
+  #   type: 'url'
+  #   tags: []
+  #   description: 'Specific phishing URLs'
+
+  # User-Agent độc hại
+  # - path: '../data/suspicious_http_user_agents_list.csv'
+  #   type: 'user-agent'
+  #   tags: []
+  #   description: 'Malicious User Agents'
+
+  # Filename (Ransomware note)
+  # - path: '../data/ransomware_notes_list.csv'
+  #   type: 'filename'
+  #   tags: []
+  #   description: 'Ransomware note filenames'
+
+  # - path: '../data/suspicious_named_pipe_list.csv'
+  #   type: 'named-pipe'
+  #   tags: []
+  #   description: 'Malicious Named Pipes'
+
+  # Xử lý Mutex độc hại
+  # - path: '../data/suspicious_mutex_names_list.csv'
+  #   type: 'mutex'
+  #   tags: []
+  #   description: 'Suspicious Mutex Names from malware analysis'
+
+# Xử lý Command Line độc hại
+  # - path: '../data/commandLine.csv'
+  #   type: 'command-line'
+  #   tags: []
+  #   description: 'Suspicious Command Lines and Arguments from Offensive Tools'
+
+  
+  # CINS Army List (Cập nhật liên tục IP quét mạng, IP tấn công)
+  - path: '../data/cins_badguys.txt'
+    url: 'https://cinsarmy.com/list/ci-badguys.txt'
+    type: 'ip'
+    tags: []
+    description: 'CINS Army Malicious IP List'
+
+  # Abuse.ch Feodo Tracker (Cập nhật liên tục IP của máy chủ điều khiển Botnet/Ransomware)
+  # - path: '../data/feodo_tracker.csv'
+  #   url: 'https://feodotracker.abuse.ch/downloads/ipblocklist.csv'
+  #   type: 'ip'
+  #   tags: []
+  #   description: 'Abuse.ch Feodo Tracker Botnet C2 IPs'
+
+  # Abuse.ch URLhaus (Cập nhật liên tục các URL đang phân phối mã độc)
+  # - path: '../data/urlhaus_recent.csv'
+  #   url: 'https://urlhaus.abuse.ch/downloads/csv_recent/'
+  #   type: 'url'
+  #   tags: []
+  #   description: 'Abuse.ch URLhaus Recent Malware URLs'
+
+output:
+  path: '../data/stix2_CommandLine.json'

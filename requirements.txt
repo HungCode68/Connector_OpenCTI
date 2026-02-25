@@ -2,3 +2,5 @@ stix2
 requests
 geoip2
 pyyaml
+python-dotenv
+pycti==6.4.2
