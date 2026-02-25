@@ -156,9 +156,19 @@ class StixConverter:
         # TẠO INDICATOR
         pattern = self._generate_pattern(value, data_type)
         if pattern:
-            main_obs_type = "Unknown"
-            if observable: main_obs_type = type(observable).__name__
-            elif data_type == 'user-agent': main_obs_type = "Network-Traffic"
+            obs_mapping = {
+                'ip': 'IPv4-Addr',
+                'domain': 'Domain-Name',
+                'url': 'URL',
+                'sha256': 'StixFile',
+                'md5': 'StixFile',
+                'filename': 'StixFile',
+                'named-pipe': 'StixFile',
+                'mutex': 'Mutex',
+                'command-line': 'Process',
+                'user-agent': 'Network-Traffic'
+            }
+            main_obs_type = obs_mapping.get(data_type, "Unknown")
             indicator_id = Indicator.generate_id(pattern=pattern)
             indicator = stix2.Indicator(
                 id=indicator_id,
