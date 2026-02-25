@@ -2,7 +2,7 @@ import stix2
 import uuid
 from datetime import datetime
 from .constants import ATTACK_PATTERN_MAPPING
-from pycti import Malware, ThreatActor
+from pycti import Malware, ThreatActor, Indicator
 
 class StixConverter:
     def __init__(self, author_id):
@@ -159,8 +159,9 @@ class StixConverter:
             main_obs_type = "Unknown"
             if observable: main_obs_type = type(observable).__name__
             elif data_type == 'user-agent': main_obs_type = "Network-Traffic"
+            indicator_id = Indicator.generate_id(pattern=pattern)
             indicator = stix2.Indicator(
-                id=f"indicator--{uuid.uuid4()}",
+                id=indicator_id,
                 name=f"Malicious {data_type.upper()}: {value}",
                 description=" | ".join(desc_parts),
                 pattern=pattern,
