@@ -2,6 +2,7 @@ import stix2
 import uuid
 from datetime import datetime
 from .constants import ATTACK_PATTERN_MAPPING
+from pycti import Malware, ThreatActor
 
 class StixConverter:
     def __init__(self, author_id):
@@ -193,6 +194,7 @@ class StixConverter:
                         
                         if pat_name not in processed_patterns:
                             ap = stix2.AttackPattern(
+                                id=mapping["id"],
                                 name=pat_name,
                                 description=mapping["description"],
                                 external_references=[{
@@ -219,7 +221,9 @@ class StixConverter:
             # XỬ LÝ VIRUSTOTAL MALWARE (Tạo Malware Object từ Hash)
             if vt_data and vt_data.get('malicious_count', 0) > 3:
                 malware_name = vt_data.get('meaningful_name') or f"Unknown Binary ({value[:8]})"
+                vt_malware_id = Malware.generate_id(name=malware_name)
                 malware = stix2.Malware(
+                    id=vt_malware_id,
                     name=malware_name,
                     is_family=False,
                     description=f"VT Identification. Product: {vt_data.get('product')}",
@@ -230,7 +234,7 @@ class StixConverter:
                 stix_objects.append(stix2.Relationship(
                     relationship_type="indicates",
                     source_ref=indicator.id,
-                    target_ref=malware.id,
+                    target_ref=vt_malware_id,
                     created_by_ref=self.author_id
                 ))
 
@@ -256,8 +260,10 @@ class StixConverter:
         tags = data.get('tags', [])
 
         if malware_name:
+            malware_id = Malware.generate_id(name=malware_name)
             # Tạo Malware Object
             malware = stix2.Malware(
+                id=malware_id,
                 name=malware_name,
                 is_family=True, # ThreatFox thường trả về tên dòng họ mã độc
                 labels=tags,
@@ -269,14 +275,16 @@ class StixConverter:
             objects_list.append(stix2.Relationship(
                 relationship_type="indicates",
                 source_ref=indicator.id,
-                target_ref=malware.id,
+                target_ref=malware_id,
                 created_by_ref=self.author_id
             ))
             
             # Tìm kiếm tên Threat Actor trong tags
             potential_actors = [t for t in tags if "APT" in t.upper() or "GROUP" in t.upper()]
             for actor_name in potential_actors:
+                actor_id = ThreatActor.generate_id(name=actor_name)
                 actor = stix2.ThreatActor(
+                    id=actor_id,
                     name=actor_name,
                     created_by_ref=self.author_id
                 )
@@ -285,7 +293,7 @@ class StixConverter:
                 # Actor -> uses -> Malware
                 objects_list.append(stix2.Relationship(
                     relationship_type="uses",
-                    source_ref=actor.id,
-                    target_ref=malware.id,
+                    source_ref=actor_id,
+                    target_ref=malware_id,
                     created_by_ref=self.author_id
                 ))

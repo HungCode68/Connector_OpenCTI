@@ -4,6 +4,7 @@ import time
 import json
 from pycti import OpenCTIApiClient
 from pycti import OpenCTIApiClient
+from pycti import Identity
 import stix2
 import geoip2.database
 from datetime import datetime
@@ -235,9 +236,14 @@ class ProductionConnector:
     def process_data(self):
         start_time = time.time()
         
+        author_name = self.cfg.get('connector', 'name')
+        # Tạo ID chuẩn theo công thức của OpenCTI
+        author_id = Identity.generate_id(name=author_name, identity_class="organization")
+
         # Tạo Identity
         author = stix2.Identity(
-            name=self.cfg.get('connector', 'name'),
+            id=author_id, # <--- Ép dùng ID chuẩn
+            name=author_name,
             identity_class="organization",
             description="Automated Threat Intelligence Connector"
         )
