@@ -19,8 +19,6 @@ RUN mkdir -p /app/data
 
 # Copy toàn bộ mã nguồn và cấu hình vào container
 COPY src/ ./src/
-COPY utils/ ./utils/
-COPY config.yml .
 
 # Lệnh sẽ được thực thi khi container khởi chạy
 CMD ["python", "src/main.py"]
