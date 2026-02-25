@@ -7,8 +7,11 @@ WORKDIR /app
 # Khắc phục lỗi in log bị chậm trong môi trường Docker
 ENV PYTHONUNBUFFERED=1
 
-# Cài đặt các gói hệ thống cơ bản (nếu cần thiết cho một số thư viện Python)
-RUN apt-get update && apt-get install -y --no-install-recommends gcc && rm -rf /var/lib/apt/lists/*
+# Cài đặt gcc và libmagic1 (bắt buộc cho thư viện pycti)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    libmagic1 \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy file requirements và cài đặt thư viện trước (giúp tận dụng cache của Docker)
 COPY requirements.txt .

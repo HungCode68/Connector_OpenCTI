@@ -32,12 +32,12 @@ pipeline {
                     string(credentialsId: 'OPENCTI_TOKEN_SECRET', variable: 'ENV_OPENCTI_TOKEN')
                 ]) {
                     // Chạy Docker và truyền biến môi trường vào qua cờ -e
-                    sh """
+                    sh '''
                     docker run --name ${CONTAINER_NAME} --rm \
                       -e OPENCTI_URL="http://52.1.238.11:8080/" \
                       -e OPENCTI_TOKEN="${ENV_OPENCTI_TOKEN}" \
                       ${DOCKER_IMAGE}:latest
-                    """
+                    '''
                 }
             }
         }
