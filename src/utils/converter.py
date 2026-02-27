@@ -72,7 +72,8 @@ class StixConverter:
         geo_info = context.get('geo_info', {})
 
         if data_type == 'named-pipe':
-            return stix2.File(name=f"\\\\.\\pipe\\{value.lstrip('\\')}", custom_properties=custom_props)
+            clean_value = value.lstrip('\\')
+            return stix2.File(name=f"\\\\.\\pipe\\{clean_value}", custom_properties=custom_props)
         elif data_type == 'ip':
             loc_str = f"ISP: {geo_info.get('isp', 'Unknown')}. Loc: {geo_info.get('loc', 'Unknown')}"
             custom_props["x_opencti_description"] += f" | {loc_str}"
