@@ -1,21 +1,21 @@
-from multiprocessing import context
 import os
 import time
 import json
-from pycti import OpenCTIApiClient
-from pycti import OpenCTIApiClient
-from pycti import Identity
+import logging
+from datetime import datetime, timedelta
+from concurrent.futures import ProcessPoolExecutor
+
+from dotenv import load_dotenv
 import stix2
 import geoip2.database
-from datetime import datetime
-from concurrent.futures import ProcessPoolExecutor
+from pycti import OpenCTIApiClient, Identity
 
 from utils.fetcher import parse_generic_file
 from utils.api_client import ThreatAPIClient
 from utils.config_helper import ConfigLoader
 from utils.converter import StixConverter
 
-from dotenv import load_dotenv
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 load_dotenv()
 
 # --- WORKER GLOBAL VARIABLES ---
@@ -227,11 +227,22 @@ class ProductionConnector:
             self.interval = 3600 # Mặc định 1 giờ
 
     def run(self):
-        self.download_latest_feeds()
         print(f"[*] Connector khởi động với {len(self.feeds)} nguồn dữ liệu.")
-        print(f"\n[{datetime.now()}] >>> Bắt đầu chu kỳ quét...")
-        self.process_data()
-        print(f"[{datetime.now()}] >>> Hoàn thành chu kỳ chạy!")
+        while True:
+            print(f"\n[{datetime.now()}] >>> Bắt đầu chu kỳ quét...")
+            self.download_latest_feeds()
+            self.process_data()
+            print(f"[{datetime.now()}] >>> Hoàn thành chu kỳ chạy!")
+
+            now = datetime.now()
+            target = now.replace(hour=3, minute=0, second=0, microsecond=0)
+            if now >= target:
+                target += timedelta(days=1)
+                
+            sleep_seconds = (target - now).total_seconds()
+
+            print(f"[*] Đang ngủ đông chờ chu kỳ tiếp theo...")
+            time.sleep(sleep_seconds)
 
     def process_data(self):
         start_time = time.time()

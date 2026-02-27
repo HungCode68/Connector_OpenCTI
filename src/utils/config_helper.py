@@ -1,44 +1,59 @@
+import logging
 import os
+from typing import Any, Dict, Optional
+
 import yaml
 
+# Khởi tạo logger
+logger = logging.getLogger(__name__)
+
 class ConfigLoader:
-    def __init__(self, base_path):
+    def __init__(self, base_path: str):
         self.base_path = base_path
         self.config_path = os.path.join(base_path, "config.yml")
-        self.config = self._load_config()
+        self.config: Dict[str, Any] = self._load_config()
 
-    def _load_config(self):
+    def _load_config(self) -> Dict[str, Any]:
+        """Đọc và parse file YAML an toàn"""
         if not os.path.isfile(self.config_path):
-            raise Exception(f"CRITICAL: Không tìm thấy file cấu hình tại {self.config_path}")
+            error_msg = f"CRITICAL: Không tìm thấy file cấu hình tại {self.config_path}"
+            logger.error(error_msg)
+            raise FileNotFoundError(error_msg)
         
-        with open(self.config_path, 'r', encoding='utf-8') as f:
-            return yaml.load(f, Loader=yaml.SafeLoader)
+        try:
+            with open(self.config_path, 'r', encoding='utf-8') as f:
+                # Dùng safe_load tối ưu và an toàn hơn
+                parsed_config = yaml.safe_load(f)
+                return parsed_config if parsed_config is not None else {}
+        except yaml.YAMLError as e:
+            logger.error(f"CRITICAL: Lỗi cú pháp trong file YAML {self.config_path}: {e}")
+            raise ValueError(f"File cấu hình không hợp lệ: {e}")
 
-    def get_path(self, relative_path):
+    def get_path(self, relative_path: Optional[str]) -> Optional[str]:
         """Chuyển đường dẫn tương đối sang tuyệt đối"""
         if not relative_path:
             return None
-        # Xử lý nếu path đã là tuyệt đối hoặc path rỗng
+            
+        # Trả về luôn nếu path đã là tuyệt đối
         if os.path.isabs(relative_path):
             return relative_path
+            
         return os.path.normpath(os.path.join(self.base_path, relative_path))
 
-    def get(self, section, key=None, default=None):
+    def get(self, section: str, key: Optional[str] = None, default: Any = None) -> Any:
         """
         Lấy giá trị config an toàn.
-        Hỗ trợ gọi: cfg.get('section', 'key') hoặc cfg.get('section')
+        - Lấy cả section: cfg.get('feeds')
+        - Lấy key trong section: cfg.get('connector', 'name')
         """
-        # Nếu chỉ truyền 1 tham số (VD: lấy toàn bộ list 'feeds')
+        # Nếu chỉ truyền section, trả về toàn bộ block đó
         if key is None:
             return self.config.get(section, default)
 
-        # Nếu truyền 2 tham số (VD: lấy 'connector' -> 'name')
+        # Nếu truyền cả key, truy xuất sâu vào trong dictionary
         section_data = self.config.get(section, {})
         
-        # Kiểm tra xem section_data có phải là dict không
         if isinstance(section_data, dict):
             return section_data.get(key, default)
-        
-        # Nếu section_data là list hoặc kiểu khác mà user lại cố .get(key)
-        # thì trả về default để tránh crash
+            
         return default
