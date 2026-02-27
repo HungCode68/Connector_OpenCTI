@@ -33,7 +33,7 @@ pipeline {
                 ]) {
                     // Chạy Docker và truyền biến môi trường vào qua cờ -e
                     sh '''
-                    docker run --name ${CONTAINER_NAME} --restart=always \
+                    docker run -d --name ${CONTAINER_NAME} --restart=always \
                       -e OPENCTI_URL="http://52.1.238.11:8080/" \
                       -e OPENCTI_TOKEN="${ENV_OPENCTI_TOKEN}" \
                       ${DOCKER_IMAGE}:latest
